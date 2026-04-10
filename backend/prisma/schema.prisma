@@ -28,6 +28,8 @@ model Project {
   projectBoilerRooms        ProjectBoilerRooms[]
   projectInteriors          ProjectInterior[]
   projectExternalNetworks   ProjectExternalNetworks[]
+  quizProjectMatches        QuizProjectMatch[]
+  pdfDownloads              PdfDownload[]
 }
 
 model ProjectImage {
@@ -177,4 +179,65 @@ model ProjectExternalNetworks {
   landscaping String
   description String
   project     Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+// ========= QUIZ =========
+
+model Quiz {
+  id                 Int                @id @default(autoincrement())
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  answers            QuizAnswer[]
+  quizProjectMatches QuizProjectMatch[]
+}
+
+model QuizQuestion {
+  id          Int          @id @default(autoincrement())
+  title       String
+  key         String
+  options     QuizOption[]
+  quizAnswers QuizAnswer[]
+}
+
+model QuizOption {
+  id          Int          @id @default(autoincrement())
+  questionId  Int
+  label       String
+  value       String // Значение, которое будет сохраняться в проекте
+  order       Int          @default(0)
+  question    QuizQuestion @relation(fields: [questionId], references: [id])
+  quizAnswers QuizAnswer[]
+}
+
+model QuizAnswer {
+  id         Int @id @default(autoincrement())
+  quizId     Int
+  questionId Int
+  optionId   Int
+
+  quiz     Quiz         @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  question QuizQuestion @relation(fields: [questionId], references: [id])
+  option   QuizOption   @relation(fields: [optionId], references: [id])
+
+  @@unique([quizId, questionId])
+}
+
+model QuizProjectMatch {
+  id        Int @id @default(autoincrement())
+  quizId    Int
+  projectId Int
+  score     Int
+
+  quiz    Quiz    @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@unique([quizId, projectId])
+}
+
+model PdfDownload {
+  id           Int      @id @default(autoincrement())
+  downloadedAt DateTime @default(now())
+  projectId    Int
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
 }
