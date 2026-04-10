@@ -7,9 +7,12 @@ const adapter: PrismaPg = new PrismaPg({
   connectionString: process.env.DATABASE_URL!,
 });
 
-const prisma: PrismaClient = new PrismaClient({ adapter });
+const prisma = new PrismaClient({ adapter });
 
 async function seed() {
+  await prisma.quizQuestion.deleteMany();
+  await prisma.project.deleteMany({ where: { slug: seedData.project.slug } });
+
   const project = await prisma.project.create({
     data: {
       name: seedData.project.name,
@@ -154,6 +157,24 @@ async function seed() {
 
   const { name, id } = project as { name: string; id: number };
   console.log(`Создан проект: ${name} (id: ${id})`);
+
+  for (const question of seedData.quizQuestions) {
+    await prisma.quizQuestion.create({
+      data: {
+        title: question.title,
+        key: question.key,
+        options: {
+          createMany: {
+            data: question.options.map((opt) => ({
+              label: opt.label,
+              value: opt.value,
+              order: opt.order,
+            })),
+          },
+        },
+      },
+    });
+  }
 }
 
 seed()

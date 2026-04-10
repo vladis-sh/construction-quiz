@@ -176,4 +176,64 @@ export const seedData = {
     sewer: 'Устройство септика из железобетонных колец стандартного объема',
     landscaping: 'Базовые работы по подключению наружных сетей к дому',
   },
+
+  quizQuestions: [
+    {
+      title: 'Какой у вас бюджет на строительство?',
+      key: 'budget',
+      options: [
+        { label: 'До 8 млн рублей', value: 'budget_low', order: 1 },
+        { label: '8–12 млн рублей', value: 'budget_medium', order: 2 },
+        { label: '12–18 млн рублей', value: 'budget_high', order: 3 },
+        { label: 'Более 18 млн рублей', value: 'budget_premium', order: 4 },
+      ],
+    },
+    {
+      title: 'Какая площадь дома вас интересует?',
+      key: 'area',
+      options: [
+        { label: 'До 80 м²', value: 'area_small', order: 1 },
+        { label: '80–120 м²', value: 'area_medium', order: 2 },
+        { label: '120–160 м²', value: 'area_large', order: 3 },
+        { label: 'Более 160 м²', value: 'area_xlarge', order: 4 },
+      ],
+    },
+    {
+      title: 'Сколько этажей вы хотите?',
+      key: 'floors',
+      options: [
+        { label: 'Одноэтажный', value: 'floors_one', order: 1 },
+        { label: 'Двухэтажный', value: 'floors_two', order: 2 },
+        { label: 'Не принципиально', value: 'floors_any', order: 3 },
+      ],
+    },
+    {
+      title: 'Сколько спален вам нужно?',
+      key: 'bedrooms',
+      options: [
+        { label: '1–2 спальни', value: 'bedrooms_two', order: 1 },
+        { label: '3 спальни', value: 'bedrooms_three', order: 2 },
+        { label: '4 и более', value: 'bedrooms_four_plus', order: 3 },
+      ],
+    },
+    {
+      title: 'Какой тип крыши вы предпочитаете?',
+      key: 'roof',
+      options: [
+        { label: 'Двускатная', value: 'roof_gable', order: 1 },
+        { label: 'Вальмовая', value: 'roof_hip', order: 2 },
+        { label: 'Плоская', value: 'roof_flat', order: 3 },
+        { label: 'Любая', value: 'roof_any', order: 4 },
+      ],
+    },
+    {
+      title: 'На каком этапе принятия решения вы находитесь?',
+      key: 'decision_stage',
+      options: [
+        { label: 'Просто смотрю варианты', value: 'stage_exploring', order: 1 },
+        { label: 'Готов начать в этом году', value: 'stage_this_year', order: 2 },
+        { label: 'Готов начать в ближайшие 3 месяца', value: 'stage_soon', order: 3 },
+      ],
+    },
+  ],
 };

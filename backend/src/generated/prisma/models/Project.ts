@@ -242,6 +242,8 @@ export type ProjectWhereInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsListRelationFilter
   projectInteriors?: Prisma.ProjectInteriorListRelationFilter
   projectExternalNetworks?: Prisma.ProjectExternalNetworksListRelationFilter
+  quizProjectMatches?: Prisma.QuizProjectMatchListRelationFilter
+  pdfDownloads?: Prisma.PdfDownloadListRelationFilter
 }
 
 export type ProjectOrderByWithRelationInput = {
@@ -265,6 +267,8 @@ export type ProjectOrderByWithRelationInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsOrderByRelationAggregateInput
   projectInteriors?: Prisma.ProjectInteriorOrderByRelationAggregateInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksOrderByRelationAggregateInput
+  quizProjectMatches?: Prisma.QuizProjectMatchOrderByRelationAggregateInput
+  pdfDownloads?: Prisma.PdfDownloadOrderByRelationAggregateInput
 }
 
 export type ProjectWhereUniqueInput = Prisma.AtLeast<{
@@ -291,6 +295,8 @@ export type ProjectWhereUniqueInput = Prisma.AtLeast<{
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsListRelationFilter
   projectInteriors?: Prisma.ProjectInteriorListRelationFilter
   projectExternalNetworks?: Prisma.ProjectExternalNetworksListRelationFilter
+  quizProjectMatches?: Prisma.QuizProjectMatchListRelationFilter
+  pdfDownloads?: Prisma.PdfDownloadListRelationFilter
 }, "id" | "slug">
 
 export type ProjectOrderByWithAggregationInput = {
@@ -339,6 +345,8 @@ export type ProjectCreateInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateInput = {
@@ -362,6 +370,8 @@ export type ProjectUncheckedCreateInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUpdateInput = {
@@ -384,6 +394,8 @@ export type ProjectUpdateInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateInput = {
@@ -407,6 +419,8 @@ export type ProjectUncheckedUpdateInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectCreateManyInput = {
@@ -689,6 +703,34 @@ export type ProjectUpdateOneRequiredWithoutProjectExternalNetworksNestedInput = 
   update?: Prisma.XOR<Prisma.XOR<Prisma.ProjectUpdateToOneWithWhereWithoutProjectExternalNetworksInput, Prisma.ProjectUpdateWithoutProjectExternalNetworksInput>, Prisma.ProjectUncheckedUpdateWithoutProjectExternalNetworksInput>
 }
 
+export type ProjectCreateNestedOneWithoutQuizProjectMatchesInput = {
+  create?: Prisma.XOR<Prisma.ProjectCreateWithoutQuizProjectMatchesInput, Prisma.ProjectUncheckedCreateWithoutQuizProjectMatchesInput>
+  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutQuizProjectMatchesInput
+  connect?: Prisma.ProjectWhereUniqueInput
+}
+
+export type ProjectUpdateOneRequiredWithoutQuizProjectMatchesNestedInput = {
+  create?: Prisma.XOR<Prisma.ProjectCreateWithoutQuizProjectMatchesInput, Prisma.ProjectUncheckedCreateWithoutQuizProjectMatchesInput>
+  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutQuizProjectMatchesInput
+  upsert?: Prisma.ProjectUpsertWithoutQuizProjectMatchesInput
+  connect?: Prisma.ProjectWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ProjectUpdateToOneWithWhereWithoutQuizProjectMatchesInput, Prisma.ProjectUpdateWithoutQuizProjectMatchesInput>, Prisma.ProjectUncheckedUpdateWithoutQuizProjectMatchesInput>
+}
+
+export type ProjectCreateNestedOneWithoutPdfDownloadsInput = {
+  create?: Prisma.XOR<Prisma.ProjectCreateWithoutPdfDownloadsInput, Prisma.ProjectUncheckedCreateWithoutPdfDownloadsInput>
+  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutPdfDownloadsInput
+  connect?: Prisma.ProjectWhereUniqueInput
+}
+
+export type ProjectUpdateOneRequiredWithoutPdfDownloadsNestedInput = {
+  create?: Prisma.XOR<Prisma.ProjectCreateWithoutPdfDownloadsInput, Prisma.ProjectUncheckedCreateWithoutPdfDownloadsInput>
+  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutPdfDownloadsInput
+  upsert?: Prisma.ProjectUpsertWithoutPdfDownloadsInput
+  connect?: Prisma.ProjectWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ProjectUpdateToOneWithWhereWithoutPdfDownloadsInput, Prisma.ProjectUpdateWithoutPdfDownloadsInput>, Prisma.ProjectUncheckedUpdateWithoutPdfDownloadsInput>
+}
+
 export type ProjectCreateWithoutProjectImagesInput = {
   name: string
   slug: string
@@ -708,6 +750,8 @@ export type ProjectCreateWithoutProjectImagesInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateWithoutProjectImagesInput = {
@@ -730,6 +774,8 @@ export type ProjectUncheckedCreateWithoutProjectImagesInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectCreateOrConnectWithoutProjectImagesInput = {
@@ -767,6 +813,8 @@ export type ProjectUpdateWithoutProjectImagesInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateWithoutProjectImagesInput = {
@@ -789,6 +837,8 @@ export type ProjectUncheckedUpdateWithoutProjectImagesInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectCreateWithoutProjectFoundationsInput = {
@@ -810,6 +860,8 @@ export type ProjectCreateWithoutProjectFoundationsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateWithoutProjectFoundationsInput = {
@@ -832,6 +884,8 @@ export type ProjectUncheckedCreateWithoutProjectFoundationsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectCreateOrConnectWithoutProjectFoundationsInput = {
@@ -869,6 +923,8 @@ export type ProjectUpdateWithoutProjectFoundationsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateWithoutProjectFoundationsInput = {
@@ -891,6 +947,8 @@ export type ProjectUncheckedUpdateWithoutProjectFoundationsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectCreateWithoutProjectWallsInput = {
@@ -912,6 +970,8 @@ export type ProjectCreateWithoutProjectWallsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateWithoutProjectWallsInput = {
@@ -934,6 +994,8 @@ export type ProjectUncheckedCreateWithoutProjectWallsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectCreateOrConnectWithoutProjectWallsInput = {
@@ -971,6 +1033,8 @@ export type ProjectUpdateWithoutProjectWallsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateWithoutProjectWallsInput = {
@@ -993,6 +1057,8 @@ export type ProjectUncheckedUpdateWithoutProjectWallsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectCreateWithoutProjectFloorsInput = {
@@ -1014,6 +1080,8 @@ export type ProjectCreateWithoutProjectFloorsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateWithoutProjectFloorsInput = {
@@ -1036,6 +1104,8 @@ export type ProjectUncheckedCreateWithoutProjectFloorsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectCreateOrConnectWithoutProjectFloorsInput = {
@@ -1073,6 +1143,8 @@ export type ProjectUpdateWithoutProjectFloorsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateWithoutProjectFloorsInput = {
@@ -1095,6 +1167,8 @@ export type ProjectUncheckedUpdateWithoutProjectFloorsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectCreateWithoutProjectRoofsInput = {
@@ -1116,6 +1190,8 @@ export type ProjectCreateWithoutProjectRoofsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateWithoutProjectRoofsInput = {
@@ -1138,6 +1214,8 @@ export type ProjectUncheckedCreateWithoutProjectRoofsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectCreateOrConnectWithoutProjectRoofsInput = {
@@ -1175,6 +1253,8 @@ export type ProjectUpdateWithoutProjectRoofsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateWithoutProjectRoofsInput = {
@@ -1197,6 +1277,8 @@ export type ProjectUncheckedUpdateWithoutProjectRoofsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectCreateWithoutProjectFacadesInput = {
@@ -1218,6 +1300,8 @@ export type ProjectCreateWithoutProjectFacadesInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateWithoutProjectFacadesInput = {
@@ -1240,6 +1324,8 @@ export type ProjectUncheckedCreateWithoutProjectFacadesInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectCreateOrConnectWithoutProjectFacadesInput = {
@@ -1277,6 +1363,8 @@ export type ProjectUpdateWithoutProjectFacadesInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateWithoutProjectFacadesInput = {
@@ -1299,6 +1387,8 @@ export type ProjectUncheckedUpdateWithoutProjectFacadesInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectCreateWithoutProjectOpeningsInput = {
@@ -1320,6 +1410,8 @@ export type ProjectCreateWithoutProjectOpeningsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateWithoutProjectOpeningsInput = {
@@ -1342,6 +1434,8 @@ export type ProjectUncheckedCreateWithoutProjectOpeningsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectCreateOrConnectWithoutProjectOpeningsInput = {
@@ -1379,6 +1473,8 @@ export type ProjectUpdateWithoutProjectOpeningsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateWithoutProjectOpeningsInput = {
@@ -1401,6 +1497,8 @@ export type ProjectUncheckedUpdateWithoutProjectOpeningsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectCreateWithoutProjectElectricalSystemsInput = {
@@ -1422,6 +1520,8 @@ export type ProjectCreateWithoutProjectElectricalSystemsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateWithoutProjectElectricalSystemsInput = {
@@ -1444,6 +1544,8 @@ export type ProjectUncheckedCreateWithoutProjectElectricalSystemsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectCreateOrConnectWithoutProjectElectricalSystemsInput = {
@@ -1481,6 +1583,8 @@ export type ProjectUpdateWithoutProjectElectricalSystemsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateWithoutProjectElectricalSystemsInput = {
@@ -1503,6 +1607,8 @@ export type ProjectUncheckedUpdateWithoutProjectElectricalSystemsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectCreateWithoutProjectHeatingSystemsInput = {
@@ -1524,6 +1630,8 @@ export type ProjectCreateWithoutProjectHeatingSystemsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateWithoutProjectHeatingSystemsInput = {
@@ -1546,6 +1654,8 @@ export type ProjectUncheckedCreateWithoutProjectHeatingSystemsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectCreateOrConnectWithoutProjectHeatingSystemsInput = {
@@ -1583,6 +1693,8 @@ export type ProjectUpdateWithoutProjectHeatingSystemsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateWithoutProjectHeatingSystemsInput = {
@@ -1605,6 +1717,8 @@ export type ProjectUncheckedUpdateWithoutProjectHeatingSystemsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectCreateWithoutProjectWaterSupplySystemsInput = {
@@ -1626,6 +1740,8 @@ export type ProjectCreateWithoutProjectWaterSupplySystemsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateWithoutProjectWaterSupplySystemsInput = {
@@ -1648,6 +1764,8 @@ export type ProjectUncheckedCreateWithoutProjectWaterSupplySystemsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectCreateOrConnectWithoutProjectWaterSupplySystemsInput = {
@@ -1685,6 +1803,8 @@ export type ProjectUpdateWithoutProjectWaterSupplySystemsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateWithoutProjectWaterSupplySystemsInput = {
@@ -1707,6 +1827,8 @@ export type ProjectUncheckedUpdateWithoutProjectWaterSupplySystemsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectCreateWithoutProjectSewerSystemsInput = {
@@ -1728,6 +1850,8 @@ export type ProjectCreateWithoutProjectSewerSystemsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateWithoutProjectSewerSystemsInput = {
@@ -1750,6 +1874,8 @@ export type ProjectUncheckedCreateWithoutProjectSewerSystemsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectCreateOrConnectWithoutProjectSewerSystemsInput = {
@@ -1787,6 +1913,8 @@ export type ProjectUpdateWithoutProjectSewerSystemsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateWithoutProjectSewerSystemsInput = {
@@ -1809,6 +1937,8 @@ export type ProjectUncheckedUpdateWithoutProjectSewerSystemsInput = {
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectCreateWithoutProjectBoilerRoomsInput = {
@@ -1830,6 +1960,8 @@ export type ProjectCreateWithoutProjectBoilerRoomsInput = {
   projectSewerSystems?: Prisma.ProjectSewerSystemsCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateWithoutProjectBoilerRoomsInput = {
@@ -1852,6 +1984,8 @@ export type ProjectUncheckedCreateWithoutProjectBoilerRoomsInput = {
   projectSewerSystems?: Prisma.ProjectSewerSystemsUncheckedCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectCreateOrConnectWithoutProjectBoilerRoomsInput = {
@@ -1889,6 +2023,8 @@ export type ProjectUpdateWithoutProjectBoilerRoomsInput = {
   projectSewerSystems?: Prisma.ProjectSewerSystemsUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateWithoutProjectBoilerRoomsInput = {
@@ -1911,6 +2047,8 @@ export type ProjectUncheckedUpdateWithoutProjectBoilerRoomsInput = {
   projectSewerSystems?: Prisma.ProjectSewerSystemsUncheckedUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectCreateWithoutProjectInteriorsInput = {
@@ -1932,6 +2070,8 @@ export type ProjectCreateWithoutProjectInteriorsInput = {
   projectSewerSystems?: Prisma.ProjectSewerSystemsCreateNestedManyWithoutProjectInput
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateWithoutProjectInteriorsInput = {
@@ -1954,6 +2094,8 @@ export type ProjectUncheckedCreateWithoutProjectInteriorsInput = {
   projectSewerSystems?: Prisma.ProjectSewerSystemsUncheckedCreateNestedManyWithoutProjectInput
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedCreateNestedManyWithoutProjectInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectCreateOrConnectWithoutProjectInteriorsInput = {
@@ -1991,6 +2133,8 @@ export type ProjectUpdateWithoutProjectInteriorsInput = {
   projectSewerSystems?: Prisma.ProjectSewerSystemsUpdateManyWithoutProjectNestedInput
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateWithoutProjectInteriorsInput = {
@@ -2013,6 +2157,8 @@ export type ProjectUncheckedUpdateWithoutProjectInteriorsInput = {
   projectSewerSystems?: Prisma.ProjectSewerSystemsUncheckedUpdateManyWithoutProjectNestedInput
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedUpdateManyWithoutProjectNestedInput
   projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectCreateWithoutProjectExternalNetworksInput = {
@@ -2034,6 +2180,8 @@ export type ProjectCreateWithoutProjectExternalNetworksInput = {
   projectSewerSystems?: Prisma.ProjectSewerSystemsCreateNestedManyWithoutProjectInput
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateWithoutProjectExternalNetworksInput = {
@@ -2056,6 +2204,8 @@ export type ProjectUncheckedCreateWithoutProjectExternalNetworksInput = {
   projectSewerSystems?: Prisma.ProjectSewerSystemsUncheckedCreateNestedManyWithoutProjectInput
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedCreateNestedManyWithoutProjectInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectCreateOrConnectWithoutProjectExternalNetworksInput = {
@@ -2093,6 +2243,8 @@ export type ProjectUpdateWithoutProjectExternalNetworksInput = {
   projectSewerSystems?: Prisma.ProjectSewerSystemsUpdateManyWithoutProjectNestedInput
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateWithoutProjectExternalNetworksInput = {
@@ -2115,6 +2267,228 @@ export type ProjectUncheckedUpdateWithoutProjectExternalNetworksInput = {
   projectSewerSystems?: Prisma.ProjectSewerSystemsUncheckedUpdateManyWithoutProjectNestedInput
   projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedUpdateManyWithoutProjectNestedInput
   projectInteriors?: Prisma.ProjectInteriorUncheckedUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedUpdateManyWithoutProjectNestedInput
+}
+
+export type ProjectCreateWithoutQuizProjectMatchesInput = {
+  name: string
+  slug: string
+  base_price: number
+  created_at?: Date | string
+  updated_at?: Date | string
+  projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
+  projectFoundations?: Prisma.ProjectFoundationCreateNestedManyWithoutProjectInput
+  projectWalls?: Prisma.ProjectWallCreateNestedManyWithoutProjectInput
+  projectFloors?: Prisma.ProjectFloorCreateNestedManyWithoutProjectInput
+  projectRoofs?: Prisma.ProjectRoofCreateNestedManyWithoutProjectInput
+  projectFacades?: Prisma.ProjectFacadeCreateNestedManyWithoutProjectInput
+  projectOpenings?: Prisma.ProjectOpeningCreateNestedManyWithoutProjectInput
+  projectElectricalSystems?: Prisma.ProjectElectricalSystemsCreateNestedManyWithoutProjectInput
+  projectHeatingSystems?: Prisma.ProjectHeatingSystemsCreateNestedManyWithoutProjectInput
+  projectWaterSupplySystems?: Prisma.ProjectWaterSupplySystemsCreateNestedManyWithoutProjectInput
+  projectSewerSystems?: Prisma.ProjectSewerSystemsCreateNestedManyWithoutProjectInput
+  projectBoilerRooms?: Prisma.ProjectBoilerRoomsCreateNestedManyWithoutProjectInput
+  projectInteriors?: Prisma.ProjectInteriorCreateNestedManyWithoutProjectInput
+  projectExternalNetworks?: Prisma.ProjectExternalNetworksCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadCreateNestedManyWithoutProjectInput
+}
+
+export type ProjectUncheckedCreateWithoutQuizProjectMatchesInput = {
+  id?: number
+  name: string
+  slug: string
+  base_price: number
+  created_at?: Date | string
+  updated_at?: Date | string
+  projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
+  projectFoundations?: Prisma.ProjectFoundationUncheckedCreateNestedManyWithoutProjectInput
+  projectWalls?: Prisma.ProjectWallUncheckedCreateNestedManyWithoutProjectInput
+  projectFloors?: Prisma.ProjectFloorUncheckedCreateNestedManyWithoutProjectInput
+  projectRoofs?: Prisma.ProjectRoofUncheckedCreateNestedManyWithoutProjectInput
+  projectFacades?: Prisma.ProjectFacadeUncheckedCreateNestedManyWithoutProjectInput
+  projectOpenings?: Prisma.ProjectOpeningUncheckedCreateNestedManyWithoutProjectInput
+  projectElectricalSystems?: Prisma.ProjectElectricalSystemsUncheckedCreateNestedManyWithoutProjectInput
+  projectHeatingSystems?: Prisma.ProjectHeatingSystemsUncheckedCreateNestedManyWithoutProjectInput
+  projectWaterSupplySystems?: Prisma.ProjectWaterSupplySystemsUncheckedCreateNestedManyWithoutProjectInput
+  projectSewerSystems?: Prisma.ProjectSewerSystemsUncheckedCreateNestedManyWithoutProjectInput
+  projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedCreateNestedManyWithoutProjectInput
+  projectInteriors?: Prisma.ProjectInteriorUncheckedCreateNestedManyWithoutProjectInput
+  projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedCreateNestedManyWithoutProjectInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedCreateNestedManyWithoutProjectInput
+}
+
+export type ProjectCreateOrConnectWithoutQuizProjectMatchesInput = {
+  where: Prisma.ProjectWhereUniqueInput
+  create: Prisma.XOR<Prisma.ProjectCreateWithoutQuizProjectMatchesInput, Prisma.ProjectUncheckedCreateWithoutQuizProjectMatchesInput>
+}
+
+export type ProjectUpsertWithoutQuizProjectMatchesInput = {
+  update: Prisma.XOR<Prisma.ProjectUpdateWithoutQuizProjectMatchesInput, Prisma.ProjectUncheckedUpdateWithoutQuizProjectMatchesInput>
+  create: Prisma.XOR<Prisma.ProjectCreateWithoutQuizProjectMatchesInput, Prisma.ProjectUncheckedCreateWithoutQuizProjectMatchesInput>
+  where?: Prisma.ProjectWhereInput
+}
+
+export type ProjectUpdateToOneWithWhereWithoutQuizProjectMatchesInput = {
+  where?: Prisma.ProjectWhereInput
+  data: Prisma.XOR<Prisma.ProjectUpdateWithoutQuizProjectMatchesInput, Prisma.ProjectUncheckedUpdateWithoutQuizProjectMatchesInput>
+}
+
+export type ProjectUpdateWithoutQuizProjectMatchesInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
+  projectFoundations?: Prisma.ProjectFoundationUpdateManyWithoutProjectNestedInput
+  projectWalls?: Prisma.ProjectWallUpdateManyWithoutProjectNestedInput
+  projectFloors?: Prisma.ProjectFloorUpdateManyWithoutProjectNestedInput
+  projectRoofs?: Prisma.ProjectRoofUpdateManyWithoutProjectNestedInput
+  projectFacades?: Prisma.ProjectFacadeUpdateManyWithoutProjectNestedInput
+  projectOpenings?: Prisma.ProjectOpeningUpdateManyWithoutProjectNestedInput
+  projectElectricalSystems?: Prisma.ProjectElectricalSystemsUpdateManyWithoutProjectNestedInput
+  projectHeatingSystems?: Prisma.ProjectHeatingSystemsUpdateManyWithoutProjectNestedInput
+  projectWaterSupplySystems?: Prisma.ProjectWaterSupplySystemsUpdateManyWithoutProjectNestedInput
+  projectSewerSystems?: Prisma.ProjectSewerSystemsUpdateManyWithoutProjectNestedInput
+  projectBoilerRooms?: Prisma.ProjectBoilerRoomsUpdateManyWithoutProjectNestedInput
+  projectInteriors?: Prisma.ProjectInteriorUpdateManyWithoutProjectNestedInput
+  projectExternalNetworks?: Prisma.ProjectExternalNetworksUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUpdateManyWithoutProjectNestedInput
+}
+
+export type ProjectUncheckedUpdateWithoutQuizProjectMatchesInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
+  projectFoundations?: Prisma.ProjectFoundationUncheckedUpdateManyWithoutProjectNestedInput
+  projectWalls?: Prisma.ProjectWallUncheckedUpdateManyWithoutProjectNestedInput
+  projectFloors?: Prisma.ProjectFloorUncheckedUpdateManyWithoutProjectNestedInput
+  projectRoofs?: Prisma.ProjectRoofUncheckedUpdateManyWithoutProjectNestedInput
+  projectFacades?: Prisma.ProjectFacadeUncheckedUpdateManyWithoutProjectNestedInput
+  projectOpenings?: Prisma.ProjectOpeningUncheckedUpdateManyWithoutProjectNestedInput
+  projectElectricalSystems?: Prisma.ProjectElectricalSystemsUncheckedUpdateManyWithoutProjectNestedInput
+  projectHeatingSystems?: Prisma.ProjectHeatingSystemsUncheckedUpdateManyWithoutProjectNestedInput
+  projectWaterSupplySystems?: Prisma.ProjectWaterSupplySystemsUncheckedUpdateManyWithoutProjectNestedInput
+  projectSewerSystems?: Prisma.ProjectSewerSystemsUncheckedUpdateManyWithoutProjectNestedInput
+  projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedUpdateManyWithoutProjectNestedInput
+  projectInteriors?: Prisma.ProjectInteriorUncheckedUpdateManyWithoutProjectNestedInput
+  projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedUpdateManyWithoutProjectNestedInput
+  pdfDownloads?: Prisma.PdfDownloadUncheckedUpdateManyWithoutProjectNestedInput
+}
+
+export type ProjectCreateWithoutPdfDownloadsInput = {
+  name: string
+  slug: string
+  base_price: number
+  created_at?: Date | string
+  updated_at?: Date | string
+  projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
+  projectFoundations?: Prisma.ProjectFoundationCreateNestedManyWithoutProjectInput
+  projectWalls?: Prisma.ProjectWallCreateNestedManyWithoutProjectInput
+  projectFloors?: Prisma.ProjectFloorCreateNestedManyWithoutProjectInput
+  projectRoofs?: Prisma.ProjectRoofCreateNestedManyWithoutProjectInput
+  projectFacades?: Prisma.ProjectFacadeCreateNestedManyWithoutProjectInput
+  projectOpenings?: Prisma.ProjectOpeningCreateNestedManyWithoutProjectInput
+  projectElectricalSystems?: Prisma.ProjectElectricalSystemsCreateNestedManyWithoutProjectInput
+  projectHeatingSystems?: Prisma.ProjectHeatingSystemsCreateNestedManyWithoutProjectInput
+  projectWaterSupplySystems?: Prisma.ProjectWaterSupplySystemsCreateNestedManyWithoutProjectInput
+  projectSewerSystems?: Prisma.ProjectSewerSystemsCreateNestedManyWithoutProjectInput
+  projectBoilerRooms?: Prisma.ProjectBoilerRoomsCreateNestedManyWithoutProjectInput
+  projectInteriors?: Prisma.ProjectInteriorCreateNestedManyWithoutProjectInput
+  projectExternalNetworks?: Prisma.ProjectExternalNetworksCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchCreateNestedManyWithoutProjectInput
+}
+
+export type ProjectUncheckedCreateWithoutPdfDownloadsInput = {
+  id?: number
+  name: string
+  slug: string
+  base_price: number
+  created_at?: Date | string
+  updated_at?: Date | string
+  projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
+  projectFoundations?: Prisma.ProjectFoundationUncheckedCreateNestedManyWithoutProjectInput
+  projectWalls?: Prisma.ProjectWallUncheckedCreateNestedManyWithoutProjectInput
+  projectFloors?: Prisma.ProjectFloorUncheckedCreateNestedManyWithoutProjectInput
+  projectRoofs?: Prisma.ProjectRoofUncheckedCreateNestedManyWithoutProjectInput
+  projectFacades?: Prisma.ProjectFacadeUncheckedCreateNestedManyWithoutProjectInput
+  projectOpenings?: Prisma.ProjectOpeningUncheckedCreateNestedManyWithoutProjectInput
+  projectElectricalSystems?: Prisma.ProjectElectricalSystemsUncheckedCreateNestedManyWithoutProjectInput
+  projectHeatingSystems?: Prisma.ProjectHeatingSystemsUncheckedCreateNestedManyWithoutProjectInput
+  projectWaterSupplySystems?: Prisma.ProjectWaterSupplySystemsUncheckedCreateNestedManyWithoutProjectInput
+  projectSewerSystems?: Prisma.ProjectSewerSystemsUncheckedCreateNestedManyWithoutProjectInput
+  projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedCreateNestedManyWithoutProjectInput
+  projectInteriors?: Prisma.ProjectInteriorUncheckedCreateNestedManyWithoutProjectInput
+  projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedCreateNestedManyWithoutProjectInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedCreateNestedManyWithoutProjectInput
+}
+
+export type ProjectCreateOrConnectWithoutPdfDownloadsInput = {
+  where: Prisma.ProjectWhereUniqueInput
+  create: Prisma.XOR<Prisma.ProjectCreateWithoutPdfDownloadsInput, Prisma.ProjectUncheckedCreateWithoutPdfDownloadsInput>
+}
+
+export type ProjectUpsertWithoutPdfDownloadsInput = {
+  update: Prisma.XOR<Prisma.ProjectUpdateWithoutPdfDownloadsInput, Prisma.ProjectUncheckedUpdateWithoutPdfDownloadsInput>
+  create: Prisma.XOR<Prisma.ProjectCreateWithoutPdfDownloadsInput, Prisma.ProjectUncheckedCreateWithoutPdfDownloadsInput>
+  where?: Prisma.ProjectWhereInput
+}
+
+export type ProjectUpdateToOneWithWhereWithoutPdfDownloadsInput = {
+  where?: Prisma.ProjectWhereInput
+  data: Prisma.XOR<Prisma.ProjectUpdateWithoutPdfDownloadsInput, Prisma.ProjectUncheckedUpdateWithoutPdfDownloadsInput>
+}
+
+export type ProjectUpdateWithoutPdfDownloadsInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
+  projectFoundations?: Prisma.ProjectFoundationUpdateManyWithoutProjectNestedInput
+  projectWalls?: Prisma.ProjectWallUpdateManyWithoutProjectNestedInput
+  projectFloors?: Prisma.ProjectFloorUpdateManyWithoutProjectNestedInput
+  projectRoofs?: Prisma.ProjectRoofUpdateManyWithoutProjectNestedInput
+  projectFacades?: Prisma.ProjectFacadeUpdateManyWithoutProjectNestedInput
+  projectOpenings?: Prisma.ProjectOpeningUpdateManyWithoutProjectNestedInput
+  projectElectricalSystems?: Prisma.ProjectElectricalSystemsUpdateManyWithoutProjectNestedInput
+  projectHeatingSystems?: Prisma.ProjectHeatingSystemsUpdateManyWithoutProjectNestedInput
+  projectWaterSupplySystems?: Prisma.ProjectWaterSupplySystemsUpdateManyWithoutProjectNestedInput
+  projectSewerSystems?: Prisma.ProjectSewerSystemsUpdateManyWithoutProjectNestedInput
+  projectBoilerRooms?: Prisma.ProjectBoilerRoomsUpdateManyWithoutProjectNestedInput
+  projectInteriors?: Prisma.ProjectInteriorUpdateManyWithoutProjectNestedInput
+  projectExternalNetworks?: Prisma.ProjectExternalNetworksUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUpdateManyWithoutProjectNestedInput
+}
+
+export type ProjectUncheckedUpdateWithoutPdfDownloadsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
+  projectFoundations?: Prisma.ProjectFoundationUncheckedUpdateManyWithoutProjectNestedInput
+  projectWalls?: Prisma.ProjectWallUncheckedUpdateManyWithoutProjectNestedInput
+  projectFloors?: Prisma.ProjectFloorUncheckedUpdateManyWithoutProjectNestedInput
+  projectRoofs?: Prisma.ProjectRoofUncheckedUpdateManyWithoutProjectNestedInput
+  projectFacades?: Prisma.ProjectFacadeUncheckedUpdateManyWithoutProjectNestedInput
+  projectOpenings?: Prisma.ProjectOpeningUncheckedUpdateManyWithoutProjectNestedInput
+  projectElectricalSystems?: Prisma.ProjectElectricalSystemsUncheckedUpdateManyWithoutProjectNestedInput
+  projectHeatingSystems?: Prisma.ProjectHeatingSystemsUncheckedUpdateManyWithoutProjectNestedInput
+  projectWaterSupplySystems?: Prisma.ProjectWaterSupplySystemsUncheckedUpdateManyWithoutProjectNestedInput
+  projectSewerSystems?: Prisma.ProjectSewerSystemsUncheckedUpdateManyWithoutProjectNestedInput
+  projectBoilerRooms?: Prisma.ProjectBoilerRoomsUncheckedUpdateManyWithoutProjectNestedInput
+  projectInteriors?: Prisma.ProjectInteriorUncheckedUpdateManyWithoutProjectNestedInput
+  projectExternalNetworks?: Prisma.ProjectExternalNetworksUncheckedUpdateManyWithoutProjectNestedInput
+  quizProjectMatches?: Prisma.QuizProjectMatchUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 
@@ -2137,6 +2511,8 @@ export type ProjectCountOutputType = {
   projectBoilerRooms: number
   projectInteriors: number
   projectExternalNetworks: number
+  quizProjectMatches: number
+  pdfDownloads: number
 }
 
 export type ProjectCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2154,6 +2530,8 @@ export type ProjectCountOutputTypeSelect<ExtArgs extends runtime.Types.Extension
   projectBoilerRooms?: boolean | ProjectCountOutputTypeCountProjectBoilerRoomsArgs
   projectInteriors?: boolean | ProjectCountOutputTypeCountProjectInteriorsArgs
   projectExternalNetworks?: boolean | ProjectCountOutputTypeCountProjectExternalNetworksArgs
+  quizProjectMatches?: boolean | ProjectCountOutputTypeCountQuizProjectMatchesArgs
+  pdfDownloads?: boolean | ProjectCountOutputTypeCountPdfDownloadsArgs
 }
 
 /**
@@ -2264,6 +2642,20 @@ export type ProjectCountOutputTypeCountProjectExternalNetworksArgs<ExtArgs exten
   where?: Prisma.ProjectExternalNetworksWhereInput
 }
 
+/**
+ * ProjectCountOutputType without action
+ */
+export type ProjectCountOutputTypeCountQuizProjectMatchesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.QuizProjectMatchWhereInput
+}
+
+/**
+ * ProjectCountOutputType without action
+ */
+export type ProjectCountOutputTypeCountPdfDownloadsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PdfDownloadWhereInput
+}
+
 
 export type ProjectSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -2286,6 +2678,8 @@ export type ProjectSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   projectBoilerRooms?: boolean | Prisma.Project$projectBoilerRoomsArgs<ExtArgs>
   projectInteriors?: boolean | Prisma.Project$projectInteriorsArgs<ExtArgs>
   projectExternalNetworks?: boolean | Prisma.Project$projectExternalNetworksArgs<ExtArgs>
+  quizProjectMatches?: boolean | Prisma.Project$quizProjectMatchesArgs<ExtArgs>
+  pdfDownloads?: boolean | Prisma.Project$pdfDownloadsArgs<ExtArgs>
   _count?: boolean | Prisma.ProjectCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["project"]>
 
@@ -2332,6 +2726,8 @@ export type ProjectInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   projectBoilerRooms?: boolean | Prisma.Project$projectBoilerRoomsArgs<ExtArgs>
   projectInteriors?: boolean | Prisma.Project$projectInteriorsArgs<ExtArgs>
   projectExternalNetworks?: boolean | Prisma.Project$projectExternalNetworksArgs<ExtArgs>
+  quizProjectMatches?: boolean | Prisma.Project$quizProjectMatchesArgs<ExtArgs>
+  pdfDownloads?: boolean | Prisma.Project$pdfDownloadsArgs<ExtArgs>
   _count?: boolean | Prisma.ProjectCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ProjectIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -2354,6 +2750,8 @@ export type $ProjectPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     projectBoilerRooms: Prisma.$ProjectBoilerRoomsPayload<ExtArgs>[]
     projectInteriors: Prisma.$ProjectInteriorPayload<ExtArgs>[]
     projectExternalNetworks: Prisma.$ProjectExternalNetworksPayload<ExtArgs>[]
+    quizProjectMatches: Prisma.$QuizProjectMatchPayload<ExtArgs>[]
+    pdfDownloads: Prisma.$PdfDownloadPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -2770,6 +3168,8 @@ export interface Prisma__ProjectClient<T, Null = never, ExtArgs extends runtime.
   projectBoilerRooms<T extends Prisma.Project$projectBoilerRoomsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Project$projectBoilerRoomsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProjectBoilerRoomsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   projectInteriors<T extends Prisma.Project$projectInteriorsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Project$projectInteriorsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProjectInteriorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   projectExternalNetworks<T extends Prisma.Project$projectExternalNetworksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Project$projectExternalNetworksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProjectExternalNetworksPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  quizProjectMatches<T extends Prisma.Project$quizProjectMatchesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Project$quizProjectMatchesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$QuizProjectMatchPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  pdfDownloads<T extends Prisma.Project$pdfDownloadsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Project$pdfDownloadsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PdfDownloadPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3531,6 +3931,54 @@ export type Project$projectExternalNetworksArgs<ExtArgs extends runtime.Types.Ex
   take?: number
   skip?: number
   distinct?: Prisma.ProjectExternalNetworksScalarFieldEnum | Prisma.ProjectExternalNetworksScalarFieldEnum[]
+}
+
+/**
+ * Project.quizProjectMatches
+ */
+export type Project$quizProjectMatchesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the QuizProjectMatch
+   */
+  select?: Prisma.QuizProjectMatchSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the QuizProjectMatch
+   */
+  omit?: Prisma.QuizProjectMatchOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.QuizProjectMatchInclude<ExtArgs> | null
+  where?: Prisma.QuizProjectMatchWhereInput
+  orderBy?: Prisma.QuizProjectMatchOrderByWithRelationInput | Prisma.QuizProjectMatchOrderByWithRelationInput[]
+  cursor?: Prisma.QuizProjectMatchWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.QuizProjectMatchScalarFieldEnum | Prisma.QuizProjectMatchScalarFieldEnum[]
+}
+
+/**
+ * Project.pdfDownloads
+ */
+export type Project$pdfDownloadsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PdfDownload
+   */
+  select?: Prisma.PdfDownloadSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PdfDownload
+   */
+  omit?: Prisma.PdfDownloadOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PdfDownloadInclude<ExtArgs> | null
+  where?: Prisma.PdfDownloadWhereInput
+  orderBy?: Prisma.PdfDownloadOrderByWithRelationInput | Prisma.PdfDownloadOrderByWithRelationInput[]
+  cursor?: Prisma.PdfDownloadWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PdfDownloadScalarFieldEnum | Prisma.PdfDownloadScalarFieldEnum[]
 }
 
 /**

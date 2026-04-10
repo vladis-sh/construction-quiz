@@ -92,3 +92,33 @@ export type ProjectInterior = Prisma.ProjectInteriorModel
  * 
  */
 export type ProjectExternalNetworks = Prisma.ProjectExternalNetworksModel
+/**
+ * Model Quiz
+ * 
+ */
+export type Quiz = Prisma.QuizModel
+/**
+ * Model QuizQuestion
+ * 
+ */
+export type QuizQuestion = Prisma.QuizQuestionModel
+/**
+ * Model QuizOption
+ * 
+ */
+export type QuizOption = Prisma.QuizOptionModel
+/**
+ * Model QuizAnswer
+ * 
+ */
+export type QuizAnswer = Prisma.QuizAnswerModel
+/**
+ * Model QuizProjectMatch
+ * 
+ */
+export type QuizProjectMatch = Prisma.QuizProjectMatchModel
+/**
+ * Model PdfDownload
+ * 
+ */
+export type PdfDownload = Prisma.PdfDownloadModel

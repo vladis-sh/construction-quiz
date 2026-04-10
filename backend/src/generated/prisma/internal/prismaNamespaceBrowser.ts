@@ -65,7 +65,13 @@ export const ModelName = {
   ProjectSewerSystems: 'ProjectSewerSystems',
   ProjectBoilerRooms: 'ProjectBoilerRooms',
   ProjectInterior: 'ProjectInterior',
-  ProjectExternalNetworks: 'ProjectExternalNetworks'
+  ProjectExternalNetworks: 'ProjectExternalNetworks',
+  Quiz: 'Quiz',
+  QuizQuestion: 'QuizQuestion',
+  QuizOption: 'QuizOption',
+  QuizAnswer: 'QuizAnswer',
+  QuizProjectMatch: 'QuizProjectMatch',
+  PdfDownload: 'PdfDownload'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -259,6 +265,64 @@ export const ProjectExternalNetworksScalarFieldEnum = {
 } as const
 
 export type ProjectExternalNetworksScalarFieldEnum = (typeof ProjectExternalNetworksScalarFieldEnum)[keyof typeof ProjectExternalNetworksScalarFieldEnum]
+
+
+export const QuizScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type QuizScalarFieldEnum = (typeof QuizScalarFieldEnum)[keyof typeof QuizScalarFieldEnum]
+
+
+export const QuizQuestionScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  key: 'key'
+} as const
+
+export type QuizQuestionScalarFieldEnum = (typeof QuizQuestionScalarFieldEnum)[keyof typeof QuizQuestionScalarFieldEnum]
+
+
+export const QuizOptionScalarFieldEnum = {
+  id: 'id',
+  questionId: 'questionId',
+  label: 'label',
+  value: 'value',
+  order: 'order'
+} as const
+
+export type QuizOptionScalarFieldEnum = (typeof QuizOptionScalarFieldEnum)[keyof typeof QuizOptionScalarFieldEnum]
+
+
+export const QuizAnswerScalarFieldEnum = {
+  id: 'id',
+  quizId: 'quizId',
+  questionId: 'questionId',
+  optionId: 'optionId'
+} as const
+
+export type QuizAnswerScalarFieldEnum = (typeof QuizAnswerScalarFieldEnum)[keyof typeof QuizAnswerScalarFieldEnum]
+
+
+export const QuizProjectMatchScalarFieldEnum = {
+  id: 'id',
+  quizId: 'quizId',
+  projectId: 'projectId',
+  score: 'score'
+} as const
+
+export type QuizProjectMatchScalarFieldEnum = (typeof QuizProjectMatchScalarFieldEnum)[keyof typeof QuizProjectMatchScalarFieldEnum]
+
+
+export const PdfDownloadScalarFieldEnum = {
+  id: 'id',
+  downloadedAt: 'downloadedAt',
+  projectId: 'projectId'
+} as const
+
+export type PdfDownloadScalarFieldEnum = (typeof PdfDownloadScalarFieldEnum)[keyof typeof PdfDownloadScalarFieldEnum]
 
 
 export const SortOrder = {
