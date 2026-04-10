@@ -1,13 +1,180 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
   provider = "prisma-client"
-  output   = "../generated/prisma"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
+}
+
+model Project {
+  id                        Int                         @id @default(autoincrement())
+  name                      String
+  slug                      String                      @unique
+  base_price                Int
+  created_at                DateTime                    @default(now())
+  updated_at                DateTime                    @updatedAt
+  projectImages             ProjectImage[]
+  projectFoundations        ProjectFoundation[]
+  projectWalls              ProjectWall[]
+  projectFloors             ProjectFloor[]
+  projectRoofs              ProjectRoof[]
+  projectFacades            ProjectFacade[]
+  projectOpenings           ProjectOpening[]
+  projectElectricalSystems  ProjectElectricalSystems[]
+  projectHeatingSystems     ProjectHeatingSystems[]
+  projectWaterSupplySystems ProjectWaterSupplySystems[]
+  projectSewerSystems       ProjectSewerSystems[]
+  projectBoilerRooms        ProjectBoilerRooms[]
+  projectInteriors          ProjectInterior[]
+  projectExternalNetworks   ProjectExternalNetworks[]
+}
+
+model ProjectImage {
+  id        Int    @id @default(autoincrement())
+  projectId Int
+  imageUrl  String
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+// Фундамент и подготовка к основанию
+model ProjectFoundation {
+  id                      Int     @id @default(autoincrement())
+  projectId               Int
+  preparation_description String
+  foundation_type         String
+  thickness_mm            Int
+  description             String
+  project                 Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model ProjectWall {
+  id               Int     @id @default(autoincrement())
+  projectId        Int
+  wallType         String
+  material         String
+  density          String
+  strengthClass    String
+  blockLengthMm    Int
+  blockHeightMm    Int
+  blockThicknessMm Int
+  description      String
+  project          Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+// Пол 
+model ProjectFloor {
+  id                    Int     @id @default(autoincrement())
+  projectId             Int
+  floorName             String
+  structureType         String
+  insulationMaterial    String
+  insulationThicknessMm Int
+  description           String
+  project               Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+// Крыша 
+model ProjectRoof {
+  id             Int     @id @default(autoincrement())
+  projectId      Int
+  roofType       String
+  finishMaterial String
+  description    String
+  project        Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+// Фасад
+model ProjectFacade {
+  id                    Int     @id @default(autoincrement())
+  projectId             Int
+  facadeName            String
+  insulationMaterial    String
+  insulationThicknessMm Int
+  description           String
+  project               Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+//Окна и двери,
+model ProjectOpening {
+  id             Int     @id @default(autoincrement())
+  projectId      Int
+  openingType    String // Как открывается: Окно или дверь
+  zoneName       String // Жилое помещение, кухня
+  profile        String
+  profileWidthMm Int
+  widthMm        Int
+  heightMm       Int
+  coating        String // Покрытие (например на окнах)
+  description    String
+  project        Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+//Электричество
+model ProjectElectricalSystems {
+  id                Int     @id @default(autoincrement())
+  projectId         Int
+  description       String
+  commitDescription String
+  project           Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+// Отопление
+model ProjectHeatingSystems {
+  id                        Int     @id @default(autoincrement())
+  projectId                 Int
+  systemType                String // Теплый пол
+  baseInsulationMaterial    String // Пенополистирол
+  baseInsulationThicknessMm Int // 20
+  fillingDescription        String
+  description               String
+  commitDescription         String // Что получим в итоге
+  project                   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+//Водоснобжение
+model ProjectWaterSupplySystems {
+  id          Int     @id @default(autoincrement())
+  projectId   Int
+  systemType  String // ХВС / ГВС
+  description String
+  project     Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+// Канализация
+model ProjectSewerSystems {
+  id          Int     @id @default(autoincrement())
+  projectId   Int
+  description String
+  project     Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model ProjectBoilerRooms {
+  id                           Int     @id @default(autoincrement())
+  projectId                    Int
+  boilerType                   String
+  equipmentDescription         String
+  customerEquipmentDescription String // Водонагреватель
+  description                  String
+  project                      Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+// Внутренняя отделка
+model ProjectInterior {
+  id          Int     @id @default(autoincrement())
+  projectId   Int
+  description String
+  project     Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+// Внешние работы
+model ProjectExternalNetworks {
+  id          Int     @id @default(autoincrement())
+  projectId   Int
+  waterSource String
+  sewer       String
+  landscaping String
+  description String
+  project     Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
 }
