@@ -1,0 +1,119 @@
+.projects {
+  background-color: #1f2b3d;
+  padding: 40px 0;
+
+  &__title {
+    color: #ffffff;
+    font-family: "'Arial',Arial,sans-serif;";
+    font-size: 84px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    letter-spacing: 4px;
+    @media (max-width: 1024px) {
+      font-size: 64px;
+      letter-spacing: 2px;
+    }
+    @media (max-width: 600px) {
+      font-size: 52px;
+      letter-spacing: 2px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.card {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__body {
+    padding: 16px 16px 0;
+    flex: 1;
+  }
+
+  &__name {
+    color: #1f2b3d;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  &__description {
+    color: #1f2b3d;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  &__price {
+    color: #1f2b3d;
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 32px;
+  }
+
+  &__actions {
+    padding: 0 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+
+    background-color: #1f2b3d;
+    color: #ffffff;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #357abd;
+    }
+
+    &_outline {
+      background-color: transparent;
+      border: 1px solid #4a90d9;
+      color: #4a90d9;
+
+      &:hover {
+        background-color: #4a90d9;
+        color: #ffffff;
+      }
+    }
+  }
+}
