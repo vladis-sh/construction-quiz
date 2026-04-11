@@ -24,8 +24,15 @@ export default defineConfig([
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": "warn",
       "prettier/prettier": "warn",
+      "prettier/prettier": [
+        "error",
+        {
+          endOfLine: "auto",
+        },
+      ],
     },
   },
+
   {
     ...eslintPluginPrettierRecommended,
     files: ["**/*.{ts,tsx}"],

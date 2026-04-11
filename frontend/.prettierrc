@@ -6,7 +6,5 @@
   "tabWidth": 2,
   "trailingComma": "all",
   "arrowParens": "avoid",
-  "bracketSameLine": false,
-
-  "endOfLine": "lf"
+  "bracketSameLine": false
 }
