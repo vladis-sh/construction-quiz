@@ -19,7 +19,14 @@
 - Создание серверной части с использованием NestJS
 - Проектирование БД
 - Настройка Prisma для работы c БД
-- Настройка ESlint и Prettier 
+- Настройка ESlint и Prettier
+
+**(11.04.2026)**
+
+- Добавлены endpoints для `projects`
+- Добавлен модуль `quiz` и связанные с ним endpoints
+- Начата реализация компонента `header`
+- Добавлена секция `projects` без данных
 
 ### Что изучили:
 
@@ -45,4 +52,10 @@
 - **ESLint и Prettier**
   - [Правила ESlint](typescript-eslint.io/rules/)
   - [Правила Prettier](https://prettier.io/docs/options)
+
+**(11.04.2026)**
+
+- **NestJS (dto / Конвейеры )**
+  - [Статья](https://habr.com/ru/companies/timeweb/articles/663234/)
+    
 
