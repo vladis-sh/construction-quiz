@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type MouseEvent, type ReactEventHandler } from "react";
 import Container from "../../../shared/ui/container/container";
 import "./quiz.scss";
 import { pluralize } from "../../../shared/lib/pluralize";
@@ -109,15 +109,69 @@ const PROJECTS: ProjectResult[] = [
 
 type QuizSteps = "questions" | "submitting" | "results";
 
-export default function Quiz() {
-  const [step, setStep] = useState<QuizSteps>("results");
-  const [isOpen, setOpen] = useState(false);
-  const [currIdx, setCurrIdx] = useState(1);
-  const [answers, setAnswers] = useState([]);
+//1 close
 
+export default function Quiz() {
+  const [step, setStep] = useState<QuizSteps>("questions");
+  const [isOpen, setOpen] = useState(false);
+  const [currIdx, setCurrIdx] = useState(0);
+  const [answers, setAnswers] = useState<Record<number, number>>({});
+  const [selected, setSelected] = useState<null | number>(null);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const openQuiz = () => {
+    setStep("questions");
+    setCurrIdx(0);
+    setAnswers([]);
+    setSelected(null);
+    setOpen(true);
+  };
+  const handleOverlayClick = (e: MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      handleClose();
+    }
+  };
+  const handleSelectOption = (optionId: number) => {
+    setSelected(optionId);
+  };
+
+  const handleNext = () => {
+    if (selected === null) {
+      return;
+    }
+    const question = QUESTIONS[currIdx];
+    const newAnswers = { ...answers, [question.id]: selected };
+    setAnswers(newAnswers);
+    if (currIdx < QUESTIONS.length - 1) {
+      setCurrIdx(currIdx + 1);
+      setSelected(newAnswers[QUESTIONS[currIdx + 1].id] ?? null); // if last question set to null selected option
+    } else {
+      setStep("submitting");
+      setTimeout(() => {
+        setStep("results");
+      }, 3200);
+      console.log(answers);
+    }
+  };
+
+  const handlePrev = () => {
+    if (currIdx === 0) return;
+    const question = QUESTIONS[currIdx];
+    const newAnswers = {
+      ...answers,
+      [question.id]: selected ?? answers[question.id],
+    };
+    setAnswers(newAnswers);
+    const prevIdx = currIdx - 1;
+    setCurrIdx(prevIdx);
+    setSelected(newAnswers[QUESTIONS[prevIdx].id] ?? null);
+  };
+
+  const currentQuestion = QUESTIONS[currIdx];
   const progressFill = ((currIdx + 1) / QUESTIONS.length) * 100;
   const options = QUESTIONS[currIdx].options;
-  const questionTitle = QUESTIONS[currIdx].title;
   const isLast = currIdx === QUESTIONS.length - 1;
   return (
     <>
@@ -131,139 +185,153 @@ export default function Quiz() {
                 которые подойдут именно вам
               </p>
             </div>
-            <button className="quiz__start">Пройти опрос</button>
+            <button className="quiz__start" onClick={openQuiz}>
+              Пройти опрос
+            </button>
           </div>
         </Container>
       </section>
-      <div className="quiz__overlay">
-        <div className="quiz__modal">
-          <div className="quiz__modal-container">
-            <button className="close__btn" aria-label="Закрыть">
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 18 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+      {isOpen && (
+        <div className="quiz__overlay" onClick={handleOverlayClick}>
+          <div className="quiz__modal">
+            <div className="quiz__modal-container">
+              <button
+                className="close__btn"
+                aria-label="Закрыть"
+                onClick={handleClose}
               >
-                <path
-                  d="M14 4L4 14M4 4l10 10"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </button>
-            <div className="quiz__modal-steps">
-              {/**Questions step */}
-              {step === "questions" && (
-                <div className="quiz__questions">
-                  <div className="progress__container">
-                    <span className="progress__label">
-                      ВОПРОС {currIdx + 1} ИЗ {QUESTIONS.length}
-                    </span>
-                    <div className="progress__bar">
-                      <div
-                        className="progress__line"
-                        style={{ width: `${progressFill}%` }}
-                      ></div>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14 4L4 14M4 4l10 10"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </button>
+              <div className="quiz__modal-steps">
+                {/**Questions step */}
+                {step === "questions" && (
+                  <div className="quiz__questions">
+                    <div className="progress__container">
+                      <span className="progress__label">
+                        ВОПРОС {currIdx + 1} ИЗ {QUESTIONS.length}
+                      </span>
+                      <div className="progress__bar">
+                        <div
+                          className="progress__line"
+                          style={{ width: `${progressFill}%` }}
+                        ></div>
+                      </div>
                     </div>
-                  </div>
-                  <h3 className="question__title">{questionTitle}</h3>
-                  <div className="options">
-                    {options.map(opt => (
-                      <button key={opt.id} className="option__button">
-                        {opt.label}
-                      </button>
-                    ))}
-                  </div>
-                  <div className="navigation">
-                    {currIdx > 0 ? (
-                      <button className="nav__prev">← Назад</button>
-                    ) : null}
-                    <button className="nav__next">
-                      {isLast ? "Показать результаты" : "Далее →"}
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {/**Submitting step */}
-              {step === "submitting" && (
-                <div className="submitting">
-                  <div className="submitting__container">
-                    <div className="spinner"></div>
-                    <span className="loading__text">
-                      Подбираем проекты<span className="dots"></span>
-                    </span>
-                  </div>
-                </div>
-              )}
-              {/**Results step */}
-              {step === "results" && (
-                <div className="results">
-                  <div className="results__container">
-                    <h3 className="results__title">
-                      Ваши персональные проекты
-                    </h3>
-                    <p className="results__subtitle">
-                      Мы нашли {PROJECTS.length} проектов под ваши запросы:
-                    </p>
-                    <div className="projects">
-                      {PROJECTS.map(p => (
-                        <div key={p.id} className="project__card">
-                          <div className="project__img">
-                            <img src={p.image} alt={p.name} />
-                          </div>
-                          <div className="project__card-info">
-                            <h4 className="project__name">{p.name}</h4>
-                            <div className="project__stats">
-                              <span>{p.area}&nbsp;м²</span>
-                              <span className="card__dot">·</span>
-                              <span>{pluralize(p.floors, "этаж")}</span>
-                              <span className="card__dot">·</span>
-                              <span>{pluralize(p.bedrooms, "спальня")}</span>
-                            </div>
-                            <span className="project__price">{p.price}</span>
-                          </div>
-                          <div className="download__pdf">
-                            <button className="pdf__btn">
-                              <svg
-                                width="14"
-                                height="14"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M12 15V3M12 15l-4-4M12 15l4-4M3 19h18"
-                                  stroke="currentColor"
-                                  strokeWidth="2"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                              Скачать PDF
-                            </button>
-                          </div>
-                        </div>
+                    <h3 className="question__title">{currentQuestion.title}</h3>
+                    <div className="options">
+                      {options.map(opt => (
+                        <button
+                          key={opt.id}
+                          className={`option__button ${selected === opt.id ? "option__button-selected" : ""}`}
+                          onClick={() => handleSelectOption(opt.id)}
+                        >
+                          {opt.label}
+                        </button>
                       ))}
                     </div>
-                  </div>
-                  {/** Contacts Phone Tg Whatsapp */}
-                  <div className="contacts">
-                    <div className="contacts__container">
-                      <a href="tel:+1234567890" className="contact__phone">
-                        Позвонить нам
-                      </a>
+                    <div className="navigation">
+                      {currIdx > 0 ? (
+                        <button className="nav__prev" onClick={handlePrev}>
+                          ← Назад
+                        </button>
+                      ) : null}
+                      <button className="nav__next" onClick={handleNext}>
+                        {isLast ? "Показать результаты" : "Далее →"}
+                      </button>
                     </div>
                   </div>
-                </div>
-              )}
+                )}
+
+                {/**Submitting step */}
+                {step === "submitting" && (
+                  <div className="submitting">
+                    <div className="submitting__container">
+                      <div className="spinner"></div>
+                      <span className="loading__text">
+                        Подбираем проекты<span className="dots"></span>
+                      </span>
+                    </div>
+                  </div>
+                )}
+                {/**Results step */}
+                {step === "results" && (
+                  <div className="results">
+                    <div className="results__container">
+                      <h3 className="results__title">
+                        Ваши персональные проекты
+                      </h3>
+                      <p className="results__subtitle">
+                        Мы нашли {PROJECTS.length} проектов под ваши запросы:
+                      </p>
+                      <div className="projects">
+                        {PROJECTS.map(p => (
+                          <div key={p.id} className="project__card">
+                            <div className="project__img">
+                              <img src={p.image} alt={p.name} />
+                            </div>
+                            <div className="project__card-info">
+                              <h4 className="project__name">{p.name}</h4>
+                              <div className="project__stats">
+                                <span>{p.area}&nbsp;м²</span>
+                                <span className="card__dot">·</span>
+                                <span>{pluralize(p.floors, "этаж")}</span>
+                                <span className="card__dot">·</span>
+                                <span>{pluralize(p.bedrooms, "спальня")}</span>
+                              </div>
+                              <span className="project__price">{p.price}</span>
+                            </div>
+                            <div className="download__pdf">
+                              <button className="pdf__btn">
+                                <svg
+                                  width="14"
+                                  height="14"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M12 15V3M12 15l-4-4M12 15l4-4M3 19h18"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                                Скачать PDF
+                              </button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    {/** Contacts Phone Tg Whatsapp */}
+                    <div className="contacts">
+                      <div className="contacts__container">
+                        <a href="tel:+1234567890" className="contact__phone">
+                          Позвонить нам
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 }

@@ -167,6 +167,13 @@
   &:active {
     transform: scale(1.01);
   }
+  &-selected {
+    background: #2563eb;
+
+    &:hover {
+      background: #1f56cb;
+    }
+  }
 }
 .navigation {
   display: flex;
@@ -202,6 +209,7 @@
   font-weight: 700;
   cursor: pointer;
   border: none;
+  margin-left: auto;
   padding: 12px 20px;
   border-radius: 4px;
   transition:
