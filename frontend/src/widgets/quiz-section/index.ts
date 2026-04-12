@@ -1,1 +1,1 @@
-export { default as QuizSection } from "./ui/quiz-section";
+export { default as Quiz } from "./ui/quiz";
