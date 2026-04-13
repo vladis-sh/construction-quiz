@@ -29,11 +29,13 @@ export type AggregateProject = {
 export type ProjectAvgAggregateOutputType = {
   id: number | null
   base_price: number | null
+  area: number | null
 }
 
 export type ProjectSumAggregateOutputType = {
   id: number | null
   base_price: number | null
+  area: number | null
 }
 
 export type ProjectMinAggregateOutputType = {
@@ -41,6 +43,7 @@ export type ProjectMinAggregateOutputType = {
   name: string | null
   slug: string | null
   base_price: number | null
+  area: number | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -50,6 +53,7 @@ export type ProjectMaxAggregateOutputType = {
   name: string | null
   slug: string | null
   base_price: number | null
+  area: number | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -59,6 +63,7 @@ export type ProjectCountAggregateOutputType = {
   name: number
   slug: number
   base_price: number
+  area: number
   created_at: number
   updated_at: number
   _all: number
@@ -68,11 +73,13 @@ export type ProjectCountAggregateOutputType = {
 export type ProjectAvgAggregateInputType = {
   id?: true
   base_price?: true
+  area?: true
 }
 
 export type ProjectSumAggregateInputType = {
   id?: true
   base_price?: true
+  area?: true
 }
 
 export type ProjectMinAggregateInputType = {
@@ -80,6 +87,7 @@ export type ProjectMinAggregateInputType = {
   name?: true
   slug?: true
   base_price?: true
+  area?: true
   created_at?: true
   updated_at?: true
 }
@@ -89,6 +97,7 @@ export type ProjectMaxAggregateInputType = {
   name?: true
   slug?: true
   base_price?: true
+  area?: true
   created_at?: true
   updated_at?: true
 }
@@ -98,6 +107,7 @@ export type ProjectCountAggregateInputType = {
   name?: true
   slug?: true
   base_price?: true
+  area?: true
   created_at?: true
   updated_at?: true
   _all?: true
@@ -194,6 +204,7 @@ export type ProjectGroupByOutputType = {
   name: string
   slug: string
   base_price: number
+  area: number
   created_at: Date
   updated_at: Date
   _count: ProjectCountAggregateOutputType | null
@@ -226,6 +237,7 @@ export type ProjectWhereInput = {
   name?: Prisma.StringFilter<"Project"> | string
   slug?: Prisma.StringFilter<"Project"> | string
   base_price?: Prisma.IntFilter<"Project"> | number
+  area?: Prisma.IntFilter<"Project"> | number
   created_at?: Prisma.DateTimeFilter<"Project"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Project"> | Date | string
   projectImages?: Prisma.ProjectImageListRelationFilter
@@ -251,6 +263,7 @@ export type ProjectOrderByWithRelationInput = {
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   base_price?: Prisma.SortOrder
+  area?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   projectImages?: Prisma.ProjectImageOrderByRelationAggregateInput
@@ -279,6 +292,7 @@ export type ProjectWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.ProjectWhereInput | Prisma.ProjectWhereInput[]
   name?: Prisma.StringFilter<"Project"> | string
   base_price?: Prisma.IntFilter<"Project"> | number
+  area?: Prisma.IntFilter<"Project"> | number
   created_at?: Prisma.DateTimeFilter<"Project"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Project"> | Date | string
   projectImages?: Prisma.ProjectImageListRelationFilter
@@ -304,6 +318,7 @@ export type ProjectOrderByWithAggregationInput = {
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   base_price?: Prisma.SortOrder
+  area?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   _count?: Prisma.ProjectCountOrderByAggregateInput
@@ -321,6 +336,7 @@ export type ProjectScalarWhereWithAggregatesInput = {
   name?: Prisma.StringWithAggregatesFilter<"Project"> | string
   slug?: Prisma.StringWithAggregatesFilter<"Project"> | string
   base_price?: Prisma.IntWithAggregatesFilter<"Project"> | number
+  area?: Prisma.IntWithAggregatesFilter<"Project"> | number
   created_at?: Prisma.DateTimeWithAggregatesFilter<"Project"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"Project"> | Date | string
 }
@@ -329,6 +345,7 @@ export type ProjectCreateInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
@@ -354,6 +371,7 @@ export type ProjectUncheckedCreateInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
@@ -378,6 +396,7 @@ export type ProjectUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
@@ -403,6 +422,7 @@ export type ProjectUncheckedUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
@@ -428,6 +448,7 @@ export type ProjectCreateManyInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -436,6 +457,7 @@ export type ProjectUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -445,6 +467,7 @@ export type ProjectUncheckedUpdateManyInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -454,6 +477,7 @@ export type ProjectCountOrderByAggregateInput = {
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   base_price?: Prisma.SortOrder
+  area?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -461,6 +485,7 @@ export type ProjectCountOrderByAggregateInput = {
 export type ProjectAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   base_price?: Prisma.SortOrder
+  area?: Prisma.SortOrder
 }
 
 export type ProjectMaxOrderByAggregateInput = {
@@ -468,6 +493,7 @@ export type ProjectMaxOrderByAggregateInput = {
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   base_price?: Prisma.SortOrder
+  area?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -477,6 +503,7 @@ export type ProjectMinOrderByAggregateInput = {
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   base_price?: Prisma.SortOrder
+  area?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -484,6 +511,7 @@ export type ProjectMinOrderByAggregateInput = {
 export type ProjectSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   base_price?: Prisma.SortOrder
+  area?: Prisma.SortOrder
 }
 
 export type ProjectScalarRelationFilter = {
@@ -735,6 +763,7 @@ export type ProjectCreateWithoutProjectImagesInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectFoundations?: Prisma.ProjectFoundationCreateNestedManyWithoutProjectInput
@@ -759,6 +788,7 @@ export type ProjectUncheckedCreateWithoutProjectImagesInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectFoundations?: Prisma.ProjectFoundationUncheckedCreateNestedManyWithoutProjectInput
@@ -798,6 +828,7 @@ export type ProjectUpdateWithoutProjectImagesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectFoundations?: Prisma.ProjectFoundationUpdateManyWithoutProjectNestedInput
@@ -822,6 +853,7 @@ export type ProjectUncheckedUpdateWithoutProjectImagesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectFoundations?: Prisma.ProjectFoundationUncheckedUpdateManyWithoutProjectNestedInput
@@ -845,6 +877,7 @@ export type ProjectCreateWithoutProjectFoundationsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
@@ -869,6 +902,7 @@ export type ProjectUncheckedCreateWithoutProjectFoundationsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
@@ -908,6 +942,7 @@ export type ProjectUpdateWithoutProjectFoundationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
@@ -932,6 +967,7 @@ export type ProjectUncheckedUpdateWithoutProjectFoundationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
@@ -955,6 +991,7 @@ export type ProjectCreateWithoutProjectWallsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
@@ -979,6 +1016,7 @@ export type ProjectUncheckedCreateWithoutProjectWallsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
@@ -1018,6 +1056,7 @@ export type ProjectUpdateWithoutProjectWallsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
@@ -1042,6 +1081,7 @@ export type ProjectUncheckedUpdateWithoutProjectWallsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
@@ -1065,6 +1105,7 @@ export type ProjectCreateWithoutProjectFloorsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
@@ -1089,6 +1130,7 @@ export type ProjectUncheckedCreateWithoutProjectFloorsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
@@ -1128,6 +1170,7 @@ export type ProjectUpdateWithoutProjectFloorsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
@@ -1152,6 +1195,7 @@ export type ProjectUncheckedUpdateWithoutProjectFloorsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
@@ -1175,6 +1219,7 @@ export type ProjectCreateWithoutProjectRoofsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
@@ -1199,6 +1244,7 @@ export type ProjectUncheckedCreateWithoutProjectRoofsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
@@ -1238,6 +1284,7 @@ export type ProjectUpdateWithoutProjectRoofsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
@@ -1262,6 +1309,7 @@ export type ProjectUncheckedUpdateWithoutProjectRoofsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
@@ -1285,6 +1333,7 @@ export type ProjectCreateWithoutProjectFacadesInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
@@ -1309,6 +1358,7 @@ export type ProjectUncheckedCreateWithoutProjectFacadesInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
@@ -1348,6 +1398,7 @@ export type ProjectUpdateWithoutProjectFacadesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
@@ -1372,6 +1423,7 @@ export type ProjectUncheckedUpdateWithoutProjectFacadesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
@@ -1395,6 +1447,7 @@ export type ProjectCreateWithoutProjectOpeningsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
@@ -1419,6 +1472,7 @@ export type ProjectUncheckedCreateWithoutProjectOpeningsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
@@ -1458,6 +1512,7 @@ export type ProjectUpdateWithoutProjectOpeningsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
@@ -1482,6 +1537,7 @@ export type ProjectUncheckedUpdateWithoutProjectOpeningsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
@@ -1505,6 +1561,7 @@ export type ProjectCreateWithoutProjectElectricalSystemsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
@@ -1529,6 +1586,7 @@ export type ProjectUncheckedCreateWithoutProjectElectricalSystemsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
@@ -1568,6 +1626,7 @@ export type ProjectUpdateWithoutProjectElectricalSystemsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
@@ -1592,6 +1651,7 @@ export type ProjectUncheckedUpdateWithoutProjectElectricalSystemsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
@@ -1615,6 +1675,7 @@ export type ProjectCreateWithoutProjectHeatingSystemsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
@@ -1639,6 +1700,7 @@ export type ProjectUncheckedCreateWithoutProjectHeatingSystemsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
@@ -1678,6 +1740,7 @@ export type ProjectUpdateWithoutProjectHeatingSystemsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
@@ -1702,6 +1765,7 @@ export type ProjectUncheckedUpdateWithoutProjectHeatingSystemsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
@@ -1725,6 +1789,7 @@ export type ProjectCreateWithoutProjectWaterSupplySystemsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
@@ -1749,6 +1814,7 @@ export type ProjectUncheckedCreateWithoutProjectWaterSupplySystemsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
@@ -1788,6 +1854,7 @@ export type ProjectUpdateWithoutProjectWaterSupplySystemsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
@@ -1812,6 +1879,7 @@ export type ProjectUncheckedUpdateWithoutProjectWaterSupplySystemsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
@@ -1835,6 +1903,7 @@ export type ProjectCreateWithoutProjectSewerSystemsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
@@ -1859,6 +1928,7 @@ export type ProjectUncheckedCreateWithoutProjectSewerSystemsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
@@ -1898,6 +1968,7 @@ export type ProjectUpdateWithoutProjectSewerSystemsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
@@ -1922,6 +1993,7 @@ export type ProjectUncheckedUpdateWithoutProjectSewerSystemsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
@@ -1945,6 +2017,7 @@ export type ProjectCreateWithoutProjectBoilerRoomsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
@@ -1969,6 +2042,7 @@ export type ProjectUncheckedCreateWithoutProjectBoilerRoomsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
@@ -2008,6 +2082,7 @@ export type ProjectUpdateWithoutProjectBoilerRoomsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
@@ -2032,6 +2107,7 @@ export type ProjectUncheckedUpdateWithoutProjectBoilerRoomsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
@@ -2055,6 +2131,7 @@ export type ProjectCreateWithoutProjectInteriorsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
@@ -2079,6 +2156,7 @@ export type ProjectUncheckedCreateWithoutProjectInteriorsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
@@ -2118,6 +2196,7 @@ export type ProjectUpdateWithoutProjectInteriorsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
@@ -2142,6 +2221,7 @@ export type ProjectUncheckedUpdateWithoutProjectInteriorsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
@@ -2165,6 +2245,7 @@ export type ProjectCreateWithoutProjectExternalNetworksInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
@@ -2189,6 +2270,7 @@ export type ProjectUncheckedCreateWithoutProjectExternalNetworksInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
@@ -2228,6 +2310,7 @@ export type ProjectUpdateWithoutProjectExternalNetworksInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
@@ -2252,6 +2335,7 @@ export type ProjectUncheckedUpdateWithoutProjectExternalNetworksInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
@@ -2275,6 +2359,7 @@ export type ProjectCreateWithoutQuizProjectMatchesInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
@@ -2299,6 +2384,7 @@ export type ProjectUncheckedCreateWithoutQuizProjectMatchesInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
@@ -2338,6 +2424,7 @@ export type ProjectUpdateWithoutQuizProjectMatchesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
@@ -2362,6 +2449,7 @@ export type ProjectUncheckedUpdateWithoutQuizProjectMatchesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
@@ -2385,6 +2473,7 @@ export type ProjectCreateWithoutPdfDownloadsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageCreateNestedManyWithoutProjectInput
@@ -2409,6 +2498,7 @@ export type ProjectUncheckedCreateWithoutPdfDownloadsInput = {
   name: string
   slug: string
   base_price: number
+  area?: number
   created_at?: Date | string
   updated_at?: Date | string
   projectImages?: Prisma.ProjectImageUncheckedCreateNestedManyWithoutProjectInput
@@ -2448,6 +2538,7 @@ export type ProjectUpdateWithoutPdfDownloadsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUpdateManyWithoutProjectNestedInput
@@ -2472,6 +2563,7 @@ export type ProjectUncheckedUpdateWithoutPdfDownloadsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   base_price?: Prisma.IntFieldUpdateOperationsInput | number
+  area?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   projectImages?: Prisma.ProjectImageUncheckedUpdateManyWithoutProjectNestedInput
@@ -2662,6 +2754,7 @@ export type ProjectSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   name?: boolean
   slug?: boolean
   base_price?: boolean
+  area?: boolean
   created_at?: boolean
   updated_at?: boolean
   projectImages?: boolean | Prisma.Project$projectImagesArgs<ExtArgs>
@@ -2688,6 +2781,7 @@ export type ProjectSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   name?: boolean
   slug?: boolean
   base_price?: boolean
+  area?: boolean
   created_at?: boolean
   updated_at?: boolean
 }, ExtArgs["result"]["project"]>
@@ -2697,6 +2791,7 @@ export type ProjectSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   name?: boolean
   slug?: boolean
   base_price?: boolean
+  area?: boolean
   created_at?: boolean
   updated_at?: boolean
 }, ExtArgs["result"]["project"]>
@@ -2706,11 +2801,12 @@ export type ProjectSelectScalar = {
   name?: boolean
   slug?: boolean
   base_price?: boolean
+  area?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slug" | "base_price" | "created_at" | "updated_at", ExtArgs["result"]["project"]>
+export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "slug" | "base_price" | "area" | "created_at" | "updated_at", ExtArgs["result"]["project"]>
 export type ProjectInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   projectImages?: boolean | Prisma.Project$projectImagesArgs<ExtArgs>
   projectFoundations?: boolean | Prisma.Project$projectFoundationsArgs<ExtArgs>
@@ -2758,6 +2854,7 @@ export type $ProjectPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     name: string
     slug: string
     base_price: number
+    area: number
     created_at: Date
     updated_at: Date
   }, ExtArgs["result"]["project"]>
@@ -3203,6 +3300,7 @@ export interface ProjectFieldRefs {
   readonly name: Prisma.FieldRef<"Project", 'String'>
   readonly slug: Prisma.FieldRef<"Project", 'String'>
   readonly base_price: Prisma.FieldRef<"Project", 'Int'>
+  readonly area: Prisma.FieldRef<"Project", 'Int'>
   readonly created_at: Prisma.FieldRef<"Project", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"Project", 'DateTime'>
 }

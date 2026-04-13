@@ -14,7 +14,7 @@ export class ProjectsService {
   async getProjects() {
     try {
       return await this.prisma.project.findMany({
-        include: { projectImages: true },
+        include: { projectImages: true, projectFloors: true, projectOpenings: true },
       });
     } catch {
       throw new InternalServerErrorException(

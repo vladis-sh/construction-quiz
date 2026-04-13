@@ -12,6 +12,7 @@ model Project {
   name                      String
   slug                      String                      @unique
   base_price                Int
+  area                      Int                         @default(0)
   created_at                DateTime                    @default(now())
   updated_at                DateTime                    @updatedAt
   projectImages             ProjectImage[]

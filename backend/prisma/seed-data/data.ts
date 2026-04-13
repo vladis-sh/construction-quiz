@@ -3,6 +3,7 @@ export const seedData = {
     name: 'ЛОТОС',
     slug: 'lotos',
     basePrice: Math.random() * 10000000 + 8000000, // цена от 8 до 18 млн рублей
+    area: 75,
   },
 
   foundation: {
@@ -238,7 +239,7 @@ export const seedData = {
 
 export const additionalProjectsData = [
   {
-    project: { name: 'ТЭСС – 80', slug: 'tess-80', base_price: 10350000 },
+    project: { name: 'ТЭСС – 80', slug: 'tess-80', base_price: 10350000, area: 80 },
     foundation: {
       preparationDescription:
         'Отсыпка и выравнивание участка 80 м³. Состав: скальный грунт 80%, ПГС 20%. Уплотнение до стандартных показателей.',
@@ -359,7 +360,7 @@ export const additionalProjectsData = [
     },
   },
   {
-    project: { name: 'ОРИОН – 83', slug: 'orion-83', base_price: 10760000 },
+    project: { name: 'ОРИОН – 83', slug: 'orion-83', base_price: 10760000, area: 83 },
     foundation: {
       preparationDescription:
         'Отсыпка и выравнивание участка 85 м³. Скальный грунт 80%, ПГС 20%. Уплотнение виброплитой.',
@@ -488,7 +489,7 @@ export const additionalProjectsData = [
     },
   },
   {
-    project: { name: 'АЛЬФА – 95', slug: 'alfa-95', base_price: 12100000 },
+    project: { name: 'АЛЬФА – 95', slug: 'alfa-95', base_price: 12100000, area: 95 },
     foundation: {
       preparationDescription:
         'Отсыпка 100 м³, скальный грунт 85%, ПГС 15%. Уплотнение до проектных значений.',
@@ -627,7 +628,7 @@ export const additionalProjectsData = [
     },
   },
   {
-    project: { name: 'СИРИУС – 110', slug: 'sirius-110', base_price: 14500000 },
+    project: { name: 'СИРИУС – 110', slug: 'sirius-110', base_price: 14500000, area: 110 },
     foundation: {
       preparationDescription:
         'Отсыпка 120 м³, скальный грунт 85%, ПГС 15%. Уплотнение виброкатком.',
@@ -783,7 +784,7 @@ export const additionalProjectsData = [
     },
   },
   {
-    project: { name: 'АВРОРА – 130', slug: 'avrora-130', base_price: 16800000 },
+    project: { name: 'АВРОРА – 130', slug: 'avrora-130', base_price: 16800000, area: 130 },
     foundation: {
       preparationDescription:
         'Отсыпка 150 м³, скальный грунт 85%, ПГС 15%. Уплотнение виброкатком до проектных значений.',

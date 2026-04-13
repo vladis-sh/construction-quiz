@@ -2022,6 +2022,7 @@ export const ProjectScalarFieldEnum = {
   name: 'name',
   slug: 'slug',
   base_price: 'base_price',
+  area: 'area',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const

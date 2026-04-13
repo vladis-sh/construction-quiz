@@ -20,6 +20,7 @@ async function seed() {
       name: seedData.project.name,
       slug: seedData.project.slug,
       base_price: Math.round(seedData.project.basePrice),
+      area: seedData.project.area,
 
       projectImages: {
         createMany: {
@@ -168,6 +169,7 @@ async function seed() {
         name: p.project.name,
         slug: p.project.slug,
         base_price: p.project.base_price,
+        area: p.project.area,
 
         projectImages: {
           createMany: {
