@@ -1,0 +1,80 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Arial", sans-serif;
+  color: #fff;
+  margin: 10px 24px 15px 0;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.error,
+.empty {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 320px;
+  overflow-y: auto;
+  margin-bottom: 28px;
+  margin-top: 40px;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+  }
+}
+
+.contacts {
+  display: flex;
+}
+
+.contactsRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.phoneBtn {
+  width: 100%;
+  flex: 1;
+  padding: 13px 24px;
+  background: #4a90d9;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.15s;
+
+  &:hover {
+    background: #357abd;
+  }
+}

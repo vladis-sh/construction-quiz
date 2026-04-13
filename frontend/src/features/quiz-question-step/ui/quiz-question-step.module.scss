@@ -1,0 +1,48 @@
+.step {
+  display: flex;
+  flex-direction: column;
+}
+
+// Progress bar
+
+.progressBar {
+  margin-bottom: 24px;
+}
+
+.progressLabel {
+  font-size: 14px;
+  color: #bababa;
+  margin-bottom: 10px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.progressTrack {
+  height: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: #4a90d9;
+  border-radius: 2px;
+}
+
+// Question
+
+.title {
+  font-size: 24px;
+  padding: 32px 0;
+  font-family: "Arial", sans-serif;
+  letter-spacing: 1px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 32px;
+}

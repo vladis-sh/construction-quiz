@@ -1,12 +1,12 @@
 import { Header } from "../widgets/header";
 import { Projects } from "../widgets/projects";
-import { Quiz } from "../widgets/quiz-section";
+import QuizSection from "../widgets/quiz-section/ui/quiz-section";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Quiz />
+      <QuizSection />
       <Projects />
     </div>
   );

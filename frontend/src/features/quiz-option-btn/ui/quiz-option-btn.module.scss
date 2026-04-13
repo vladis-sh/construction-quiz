@@ -1,0 +1,28 @@
+.btn {
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  font-family: "Arial", sans-serif;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  &:active {
+    transform: scale(1.01);
+  }
+}
+
+.selected {
+  background: #2563eb;
+
+  &:hover {
+    background: #1f56cb;
+  }
+}
