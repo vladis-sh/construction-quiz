@@ -3,7 +3,7 @@ import {
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 import { CreateProjectDto } from './dto/create-project.dto';
 import { UpdateProjectDto } from './dto/update-project.dto';
 
@@ -14,7 +14,11 @@ export class ProjectsService {
   async getProjects() {
     try {
       return await this.prisma.project.findMany({
-        include: { projectImages: true, projectFloors: true, projectOpenings: true },
+        include: {
+          projectImages: true,
+          projectFloors: true,
+          projectOpenings: true,
+        },
       });
     } catch {
       throw new InternalServerErrorException(

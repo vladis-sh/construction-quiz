@@ -13,6 +13,11 @@ import { SaveAnswersDto } from './dto/save-answers.dto';
 export class QuizController {
   constructor(private readonly quizService: QuizService) {}
 
+  @Get('questions')
+  getQuestions() {
+    return this.quizService.getQuestions();
+  }
+
   @Post()
   createQuiz() {
     return this.quizService.createQuiz();
@@ -30,9 +35,4 @@ export class QuizController {
   computeMatches(@Param('id', ParseIntPipe) id: number) {
     return this.quizService.computeMatches(id);
   }
-
-  //   @Get(':id/matches')
-  //   getMatches(@Param('id', ParseIntPipe) id: number) {
-  //     return this.quizService.getMatches(id);
-  //   }
 }
