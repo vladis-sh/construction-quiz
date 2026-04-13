@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { PrismaClient } from 'src/generated/prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
-import { seedData } from './seed-data/data';
+import { seedData, additionalProjectsData } from './seed-data/data';
 
 const adapter: PrismaPg = new PrismaPg({
   connectionString: process.env.DATABASE_URL!,
@@ -10,6 +10,8 @@ const adapter: PrismaPg = new PrismaPg({
 const prisma = new PrismaClient({ adapter });
 
 async function seed() {
+  await prisma.quizAnswer.deleteMany();
+  await prisma.quizOption.deleteMany();
   await prisma.quizQuestion.deleteMany();
   await prisma.project.deleteMany({ where: { slug: seedData.project.slug } });
 
@@ -157,6 +159,147 @@ async function seed() {
 
   const { name, id } = project as { name: string; id: number };
   console.log(`Создан проект: ${name} (id: ${id})`);
+
+  for (const p of additionalProjectsData) {
+    await prisma.project.deleteMany({ where: { slug: p.project.slug } });
+
+    const created = await prisma.project.create({
+      data: {
+        name: p.project.name,
+        slug: p.project.slug,
+        base_price: p.project.base_price,
+
+        projectImages: {
+          createMany: {
+            data: p.images.map((img) => ({ imageUrl: img.imageUrl })),
+          },
+        },
+
+        projectFoundations: {
+          create: {
+            preparation_description: p.foundation.preparationDescription,
+            foundation_type: p.foundation.foundationType,
+            thickness_mm: p.foundation.thicknessMm,
+            description: '',
+          },
+        },
+
+        projectWalls: {
+          createMany: {
+            data: p.walls.map((w) => ({
+              wallType: w.wallType,
+              material: w.material,
+              density: w.density,
+              strengthClass: w.strengthClass,
+              blockLengthMm: w.blockLengthMm,
+              blockHeightMm: w.blockHeightMm,
+              blockThicknessMm: w.blockThicknessMm,
+              description: w.description,
+            })),
+          },
+        },
+
+        projectFloors: {
+          createMany: {
+            data: p.floors.map((f) => ({
+              floorName: f.floorName,
+              structureType: f.structureType,
+              insulationMaterial: f.insulationMaterial,
+              insulationThicknessMm: f.insulationThicknessMm,
+              description: f.description,
+            })),
+          },
+        },
+
+        projectRoofs: {
+          create: {
+            roofType: p.roof.roofType,
+            finishMaterial: p.roof.finishMaterial,
+            description: p.roof.description,
+          },
+        },
+
+        projectFacades: {
+          create: {
+            facadeName: p.facade.facadeName,
+            insulationMaterial: p.facade.insulationMaterial,
+            insulationThicknessMm: p.facade.insulationThicknessMm,
+            description: p.facade.description,
+          },
+        },
+
+        projectOpenings: {
+          createMany: {
+            data: p.openings.map((o) => ({
+              openingType: o.openingType,
+              zoneName: o.zoneName,
+              profile: o.profile,
+              profileWidthMm: o.profileWidthMm ?? 0,
+              widthMm: o.widthMm ?? 0,
+              heightMm: o.heightMm ?? 0,
+              coating: o.coating ?? '',
+              description: o.description,
+            })),
+          },
+        },
+
+        projectElectricalSystems: {
+          create: {
+            description: p.electrical.description,
+            commitDescription: p.electrical.commissioningDescription,
+          },
+        },
+
+        projectHeatingSystems: {
+          create: {
+            systemType: p.heating.systemType,
+            baseInsulationMaterial: p.heating.baseInsulationMaterial,
+            baseInsulationThicknessMm: p.heating.baseInsulationThicknessMm,
+            fillingDescription: p.heating.fillingDescription,
+            description: p.heating.description,
+            commitDescription: p.heating.commitDescription,
+          },
+        },
+
+        projectWaterSupplySystems: {
+          create: {
+            systemType: p.waterSupply.systemType,
+            description: p.waterSupply.description,
+          },
+        },
+
+        projectSewerSystems: {
+          createMany: {
+            data: p.sewerSystems.map((s) => ({ description: s.description })),
+          },
+        },
+
+        projectBoilerRooms: {
+          create: {
+            boilerType: p.boilerRoom.boilerType,
+            equipmentDescription: p.boilerRoom.equipmentDescription,
+            customerEquipmentDescription: p.boilerRoom.customerEquipmentNote,
+            description: '',
+          },
+        },
+
+        projectInteriors: {
+          create: { description: p.interiorFinish.description },
+        },
+
+        projectExternalNetworks: {
+          create: {
+            waterSource: p.externalNetworks.waterSource,
+            sewer: p.externalNetworks.sewer,
+            landscaping: p.externalNetworks.landscaping,
+            description: '',
+          },
+        },
+      },
+    });
+
+    console.log(`Создан проект: ${created.name} (id: ${created.id})`);
+  }
 
   for (const question of seedData.quizQuestions) {
     await prisma.quizQuestion.create({
