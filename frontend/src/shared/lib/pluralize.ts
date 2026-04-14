@@ -14,7 +14,7 @@ export function pluralize(count: number, word: string): string {
   }
   const abs = Math.abs(count) % 100;
   const lastChar = abs % 10;
-  if (lastChar > 10 && lastChar < 20) {
+  if (abs >= 11 && abs <= 19) {
     return `${count} ${forms[2]}`;
   }
   if (lastChar >= 2 && lastChar < 5) {

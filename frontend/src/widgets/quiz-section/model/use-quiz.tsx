@@ -101,7 +101,7 @@ export const useQuiz = () => {
     setCurrentIndex(prev => Math.max(0, prev - 1));
   }, []);
   const goNext = useCallback(async () => {
-    if (!currentQuestion || selectedOptionId === null) {
+    if (!currentQuestion || selectedOptionId == null) {
       return;
     }
     if (!isLastQuestion) {
