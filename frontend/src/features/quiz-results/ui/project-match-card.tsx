@@ -1,5 +1,6 @@
 import formatPrice from "../../../shared/lib/formatPrice";
 import { getImageUrl } from "../../../shared/lib/get-image-url";
+import { API_BASE_URL } from "../../../shared/api/base";
 import type { ProjectMatch } from "../../../widgets/quiz-section/model/types";
 import styles from "./project-match-card.module.scss";
 
@@ -30,7 +31,7 @@ export default function ProjectMatchCard({ p }: Props) {
         <div className={styles.actions}>
           <a
             className={styles.pdfLink}
-            href={p.pdf}
+            href={`${API_BASE_URL}/projects/${p.id}/pdf`}
             target="_blank"
             rel="noreferrer"
           >
