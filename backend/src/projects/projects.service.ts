@@ -6,6 +6,7 @@ import {
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateProjectDto } from './dto/create-project.dto';
 import { UpdateProjectDto } from './dto/update-project.dto';
+import type { FullProject } from '../pdf/pdf.service';
 
 @Injectable()
 export class ProjectsService {
@@ -28,7 +29,7 @@ export class ProjectsService {
   }
 
   async getProjectById(id: number) {
-    let project: Awaited<ReturnType<typeof this.prisma.project.findUnique>>;
+    let project: FullProject | null;
     try {
       project = await this.prisma.project.findUnique({
         where: { id },

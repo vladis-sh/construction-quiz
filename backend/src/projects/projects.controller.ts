@@ -38,7 +38,7 @@ export class ProjectsController {
     @Res() res: Response,
   ) {
     const project = await this.projectsService.getProjectById(id);
-    const buffer = await this.pdfService.generateProjectPdf(project as any);
+    const buffer = await this.pdfService.generateProjectPdf(project);
     const filename = encodeURIComponent(`project-${project.name}.pdf`);
     res.set({
       'Content-Type': 'application/pdf',

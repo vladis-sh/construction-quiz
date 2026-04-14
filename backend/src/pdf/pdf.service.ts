@@ -65,7 +65,7 @@ const SECTION_LABELS: Record<string, string> = {
   external: 'Внешние работы',
 };
 
-type FullProject = {
+export type FullProject = {
   id: number;
   name: string;
   area: number;

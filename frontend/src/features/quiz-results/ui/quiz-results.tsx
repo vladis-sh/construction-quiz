@@ -1,9 +1,9 @@
 import ProjectMatchCard from "./project-match-card";
 import styles from "./quiz-results.module.scss";
+import type { ProjectMatch } from "../../../widgets/quiz-section/model/types";
 
-//ProjectMatch[];
 interface QuizResultsProps {
-  results: any;
+  results: ProjectMatch[];
   resultsError: string | null;
 }
 export default function QuizResults({
