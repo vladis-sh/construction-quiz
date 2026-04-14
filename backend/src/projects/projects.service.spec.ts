@@ -155,7 +155,7 @@ describe('ProjectsService', () => {
       expect(result).toEqual(updated);
       expect(mockPrisma.project.update).toHaveBeenCalledWith({
         where: { id: 1 },
-        data: { name: 'New' },
+        data: { name: 'New House' },
       });
     });
 
