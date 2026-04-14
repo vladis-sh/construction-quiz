@@ -109,6 +109,10 @@ yarn dev
 
 - Произвел рефакторинг секции Quiz
 
+**(14.04.2026)**
+
+- Тестирование 
+
 ### Что изучили:
 
 **(09.04.2026)**
@@ -148,4 +152,12 @@ yarn dev
 [React-хуки](https://habr.com/ru/companies/simbirsoft/articles/652321/) 
   
     
+**(14.04.2026)**
 
+  [Тестирование 1](https://dev.to/myogeshchavan97/master-react-testing-step-by-step-jest-vitest-react-testing-libraryj-3k60?utm_source=chatgpt.com)
+  [Тестирование 2](https://vitest.dev/guide/browser/component-testing?utm_source=chatgpt.com)
+  [Тестирование 3](https://medium.com/@jackallcock97/unit-testing-with-nestjs-and-jest-a-comprehensive-tutorial-464910f6c6ba)
+  [Тестирование 4](https://docs.nestjs.com/fundamentals/testing)
+  [Тестирование 5](https://dev.to/ehsaantech/mastering-unit-testing-with-nestjs-37g9)
+  [Тестирование 6](https://dev.to/kevinccbsg/react-testing-setup-vitest-typescript-react-testing-library-42c8)
+  [Тестирование 7](https://bogr.dev/blog/react-testing-intro/)
