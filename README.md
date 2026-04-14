@@ -1,5 +1,77 @@
 # Отчёт по выполнению
 
+## Запуск проекта
+
+### Требования
+
+- [Node.js](https://nodejs.org/) v18+
+- [Yarn](https://yarnpkg.com/) v1.22+
+- [PostgreSQL](https://www.postgresql.org/) 
+
+### 1. Настройка переменных окружения
+
+Создайте файл `backend/.env` на основе примера:
+
+```
+PORT=<порт сервера>
+
+DB_HOST=<хост базы данных>
+DB_PORT=<порт базы данных>
+DB_USER=<пользователь>
+DB_PASSWORD=<пароль>
+DB_NAME=<название базы данных>
+
+DATABASE_URL="postgresql://<пользователь>:<пароль>@<хост>:<порт>/<название базы данных>?schema=public"
+
+```
+
+Создайте файл `frontend/.env` на основе примера:
+
+```
+VITE_API_URL=<адрес сервера> 
+```
+
+
+
+### 2. Установка зависимостей
+
+```bash
+# Backend
+cd backend
+yarn install
+
+# Frontend
+cd ../frontend
+yarn install
+```
+
+### 3. Применение миграций базы данных и заполнение начальными данными
+
+```bash
+cd backend
+yarn prisma migrate deploy
+yarn prisma db seed
+```
+
+### 4. Запуск
+
+**Backend** (в одном терминале):
+
+```bash
+cd backend
+yarn start:dev
+```
+
+**Frontend** (в другом терминале):
+
+```bash
+cd frontend
+yarn dev
+```
+
+
+
+
 ## Описание
 
 ### Что выполнили:
