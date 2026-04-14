@@ -1,0 +1,19 @@
+.startBtn {
+  background: #fff;
+  color: #1f2b3d;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  padding: 16px;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: #dedede;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}

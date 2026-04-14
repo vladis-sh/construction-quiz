@@ -1,6 +1,6 @@
 import { Header } from "../widgets/header";
 import { Projects } from "../widgets/projects";
-import QuizSection from "../widgets/quiz-section/ui/quiz-section";
+import { QuizSection } from "../widgets/quiz-section";
 
 function App() {
   return (

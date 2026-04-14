@@ -1,6 +1,7 @@
 import { QuizQuestionStep } from "../../../features/quiz-question-step/ui/quiz.quiestion-step";
 import QuizResults from "../../../features/quiz-results/ui/quiz-results";
-import type { ProjectMatch, QuizQuestion } from "../api/quiz-api";
+import type { QuizQuestion } from "../api/quiz-api";
+import type { ProjectMatch } from "../model/types";
 import styles from "./quiz-modal.module.scss";
 
 interface QuizModalProps {
@@ -61,7 +62,10 @@ export default function QuizModal({ quiz }: QuizModalProps) {
         )}
 
         {quiz.step === "results" && (
-          <QuizResults results={quiz.results} error={quiz.resultsError} />
+          <QuizResults
+            results={quiz.results}
+            resultsError={quiz.resultsError}
+          />
         )}
       </div>
     </div>

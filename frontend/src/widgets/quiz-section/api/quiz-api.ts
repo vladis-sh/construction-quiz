@@ -21,6 +21,7 @@ export interface ProjectMatch {
   base_price: number;
   image: string | null;
   score: number;
+  pdf: string | null;
 }
 
 //TODO:

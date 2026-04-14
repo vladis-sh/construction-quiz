@@ -1,3 +1,4 @@
+import { StartQuizBtn } from "../../../features/start-quiz";
 import Container from "../../../shared/ui/container/container";
 import { useQuiz } from "../model/use-quiz";
 import QuizModal from "./quiz-modal";
@@ -17,15 +18,11 @@ export default function QuizSection() {
                 которые подойдут именно вам
               </p>
             </div>
-            <button
-              className={styles.startBtn}
+            <StartQuizBtn
               onClick={quiz.openQuiz}
-              disabled={quiz.questionsLoading || quiz.questions.length === 0}
-            >
-              {quiz.questionsLoading || quiz.sessionLoading
-                ? "Загрузка..."
-                : "Пройти опрос"}
-            </button>
+              loading={quiz.questionsLoading || quiz.sessionLoading}
+              disabled={quiz.questions.length === 0}
+            />
           </div>
         </Container>
       </section>
