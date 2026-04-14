@@ -17,7 +17,7 @@ export default function StartQuizBtn({
       onClick={onClick}
       disabled={disabled || loading}
     >
-      "Пройти опрос"
+      Пройти опрос
     </button>
   );
 }
