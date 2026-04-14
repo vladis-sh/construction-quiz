@@ -640,7 +640,17 @@ export class PdfService {
       project.projectOpenings,
       ctx,
       (opening, sectionLabel) => {
-        this.field(doc, 'Тип', opening.openingType, ctx, sectionLabel);
+        const openingTypeLabel: Record<string, string> = {
+          window: 'Окно',
+          door: 'Дверь',
+        };
+        this.field(
+          doc,
+          'Тип',
+          openingTypeLabel[opening.openingType] ?? opening.openingType,
+          ctx,
+          sectionLabel,
+        );
         this.field(doc, 'Зона', opening.zoneName, ctx, sectionLabel);
         this.field(doc, 'Профиль', opening.profile, ctx, sectionLabel);
         this.field(
