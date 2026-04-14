@@ -6,7 +6,7 @@ describe("formatPrice", () => {
     expect(formatPrice(0)).toBe("0");
   });
   it("форматирует число с разделителями тысяч", () => {
-    expect(formatPrice(1000000)).toBe("1 000 000");
+    expect(formatPrice(1000000)).toBe("1\u00A0000\u00A0000");
   });
 
   it("не добавляет разделитель для чисел меньше 1000", () => {
@@ -14,7 +14,7 @@ describe("formatPrice", () => {
   });
 
   it("форматирует шестизначные числа", () => {
-    expect(formatPrice(350000)).toBe("350 000");
+    expect(formatPrice(350000)).toBe("350\u00A0000");
   });
 
   it("обрабатывает отрицательные числа", () => {

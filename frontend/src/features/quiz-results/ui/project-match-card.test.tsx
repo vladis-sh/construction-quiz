@@ -39,7 +39,7 @@ describe("ProjectMatchCard", () => {
       <ProjectMatchCard p={{ ...baseProject, image: "/img/house.jpg" }} />,
     );
     const img = screen.getByRole("img");
-    expect(img).toHaveAttribute("alt", "Проект Альфа");
+    expect(img).toHaveAttribute("alt", "Проект Демо");
     expect(img).toHaveAttribute(
       "src",
       expect.stringContaining("/img/house.jpg"),
@@ -51,7 +51,7 @@ describe("ProjectMatchCard", () => {
     const link = screen.getByText("Скачать подробный план").closest("a");
     expect(link).toHaveAttribute(
       "href",
-      expect.stringContaining("/projects/42/pdf"),
+      expect.stringContaining("/projects/49/pdf"),
     );
     expect(link).toHaveAttribute("target", "_blank");
   });
