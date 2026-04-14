@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { QuizOptionCard } from "./quiz-option-btn";
+import { QuizOptionCard } from "../../../../features/quiz-option-btn/ui/quiz-option-btn";
 
 describe("QuizOptionCard", () => {
   it("отображает дочерний контент", () => {

@@ -1,5 +1,1 @@
-export type {
-  QuizOption,
-  QuizQuestion,
-  ProjectMatch,
-} from "../api/quiz-api";
+export type { QuizOption, QuizQuestion, ProjectMatch } from "../api/quiz-api";

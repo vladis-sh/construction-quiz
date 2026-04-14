@@ -1,9 +1,9 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { renderHook, act, waitFor } from "@testing-library/react";
-import { useQuiz } from "./use-quiz";
-import * as quizApi from "../api/quiz-api";
+import { useQuiz } from "../../../../widgets/quiz-section/model/use-quiz";
+import * as quizApi from "../../../../widgets/quiz-section/api/quiz-api";
 
-vi.mock("../api/quiz-api", () => ({
+vi.mock("../../../../widgets/quiz-section/api/quiz-api", () => ({
   fetchQuizQuestions: vi.fn(),
   createQuizSession: vi.fn(),
   submitQuizAnswers: vi.fn(),
@@ -39,6 +39,7 @@ const mockMatches: quizApi.ProjectMatch[] = [
     base_price: 3000000,
     score: 90,
     image: null,
+    pdf: null,
   },
 ];
 

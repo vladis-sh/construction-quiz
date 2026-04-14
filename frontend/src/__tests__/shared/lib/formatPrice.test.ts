@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import formatPrice from "./formatPrice";
+import formatPrice from "../../../shared/lib/formatPrice";
 
 describe("formatPrice", () => {
   it("Обработка 0", () => {

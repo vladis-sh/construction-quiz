@@ -29,6 +29,7 @@ export interface Project {
   projectOpenings: ProjectOpening[];
 }
 
+// Получить список проектов
 export async function fetchProjects(): Promise<Project[]> {
   const response = await fetch(`${API_BASE_URL}/projects`);
 

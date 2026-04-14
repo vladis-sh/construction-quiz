@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import ProjectMatchCard from "./project-match-card";
-import type { ProjectMatch } from "../../../widgets/quiz-section/model/types";
+import ProjectMatchCard from "../../../../features/quiz-results/ui/project-match-card";
+import type { ProjectMatch } from "../../../../widgets/quiz-section/model/types";
 
 const baseProject: ProjectMatch = {
   id: 49,

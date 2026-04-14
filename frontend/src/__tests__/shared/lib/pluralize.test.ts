@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { pluralize } from "./pluralize";
+import { pluralize } from "../../../shared/lib/pluralize";
 
 describe("pluralize", () => {
   describe("этаж", () => {

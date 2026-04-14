@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { buildDescription } from "./description";
-import type { Project } from "../api/projects-api";
+import { buildDescription } from "../../../../widgets/projects/lib/description";
+import type { Project } from "../../../../widgets/projects/api/projects-api";
 
 function makeProject(overrides: Partial<Project> = {}): Project {
   return {
@@ -48,9 +48,7 @@ describe("buildDescription", () => {
   it("одноэтажный дом с одной спальней", () => {
     const project = makeProject({
       projectFloors: [{ id: 1, floorName: "1 этаж" }],
-      projectOpenings: [
-        { id: 1, openingType: "room", zoneName: "Спальня 1" },
-      ],
+      projectOpenings: [{ id: 1, openingType: "room", zoneName: "Спальня 1" }],
       area: 90,
     });
     expect(buildDescription(project)).toBe(

@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import QuizResults from "./quiz-results";
-import type { ProjectMatch } from "../../../widgets/quiz-section/model/types";
+import QuizResults from "../../../../features/quiz-results/ui/quiz-results";
+import type { ProjectMatch } from "../../../../widgets/quiz-section/model/types";
 
 const mockProject: ProjectMatch = {
   id: 1,

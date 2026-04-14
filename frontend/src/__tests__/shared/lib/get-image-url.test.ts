@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
-import { getImageUrl } from "./get-image-url";
+import { getImageUrl } from "../../../shared/lib/get-image-url";
 
 describe("getImageUrl", () => {
   beforeEach(() => {
